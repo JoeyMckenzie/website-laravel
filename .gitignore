@@ -9,6 +9,7 @@
 /resources/js/actions
 /resources/js/routes
 /resources/js/wayfinder
+/storage/framework/cache/orbit
 /vendor
 .DS_Store
 .env
@@ -26,3 +27,4 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+/docs/plans
