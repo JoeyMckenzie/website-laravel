@@ -1,0 +1,727 @@
+variant = "loose"
+
+[[issues]]
+file = "app/Actions/Fortify/CreateNewUser.php"
+code = "incompatible-parameter-type"
+message = 'Parameter `$input` of `App\Actions\Fortify\CreateNewUser::create()` expects type `array<string, string>` but parent `Laravel\Fortify\Contracts\CreatesNewUsers::create()` expects type `array<array-key, mixed>`'
+count = 1
+
+[[issues]]
+file = "app/Actions/Fortify/CreateNewUser.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Actions\Fortify\CreateNewUser::create`.'
+count = 1
+
+[[issues]]
+file = "app/Actions/Fortify/CreateNewUser.php"
+code = "mixed-return-statement"
+message = 'Could not infer a precise return type for function `app\actions\fortify\createnewuser::create`. Saw type `mixed`.'
+count = 1
+
+[[issues]]
+file = "app/Actions/Fortify/CreateNewUser.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `create` on class `App\Models\User`.'
+count = 1
+
+[[issues]]
+file = "app/Actions/Fortify/CreateNewUser.php"
+code = "possibly-undefined-array-index"
+message = "Possibly undefined array key `string('email')` accessed on `array<string, string>`."
+count = 1
+
+[[issues]]
+file = "app/Actions/Fortify/CreateNewUser.php"
+code = "possibly-undefined-array-index"
+message = "Possibly undefined array key `string('name')` accessed on `array<string, string>`."
+count = 1
+
+[[issues]]
+file = "app/Actions/Fortify/CreateNewUser.php"
+code = "possibly-undefined-array-index"
+message = "Possibly undefined array key `string('password')` accessed on `array<string, string>`."
+count = 1
+
+[[issues]]
+file = "app/Actions/Fortify/CreateNewUser.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `Illuminate\Validation\ValidationException` in `App\Actions\Fortify\CreateNewUser::create`.'
+count = 1
+
+[[issues]]
+file = "app/Actions/Fortify/ResetUserPassword.php"
+code = "docblock-type-mismatch"
+message = 'Docblock type `Illuminate\Foundation\Auth\User` for parameter `$user` is incompatible with native type `App\Models\User`.'
+count = 1
+
+[[issues]]
+file = "app/Actions/Fortify/ResetUserPassword.php"
+code = "incompatible-parameter-type"
+message = 'Parameter `$input` of `App\Actions\Fortify\ResetUserPassword::reset()` expects type `array<string, string>` but parent `Laravel\Fortify\Contracts\ResetsUserPasswords::reset()` expects type `array<array-key, mixed>`'
+count = 1
+
+[[issues]]
+file = "app/Actions/Fortify/ResetUserPassword.php"
+code = "possibly-undefined-array-index"
+message = "Possibly undefined array key `string('password')` accessed on `array<string, string>`."
+count = 1
+
+[[issues]]
+file = "app/Actions/Fortify/ResetUserPassword.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `Illuminate\Validation\ValidationException` in `App\Actions\Fortify\ResetUserPassword::reset`.'
+count = 1
+
+[[issues]]
+file = "app/Concerns/ProfileValidationRules.php"
+code = "invalid-return-statement"
+message = '''Invalid return type for function `app\concerns\profilevalidationrules::emailrules`: expected `array<int, Illuminate\Contracts\Validation\Rule|array<array-key, mixed>|string>`, but found `list{string('required'), string('string'), string('email'), string('max:255'), $this(Illuminate\Validation\Rules\Unique)|Illuminate\Validation\Rules\Unique}`.'''
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Settings/ProfileController.php"
+code = "mixed-assignment"
+message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Settings/ProfileController.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 4
+
+[[issues]]
+file = "app/Http/Controllers/Settings/ProfileController.php"
+code = "mixed-property-access"
+message = "Attempting to access a property on a non-object type (`mixed`)."
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Settings/ProfileController.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `RuntimeException` in `App\Http\Controllers\Settings\ProfileController::destroy`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Settings/ProfileController.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `RuntimeException` in `App\Http\Controllers\Settings\ProfileController::edit`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Settings/SecurityController.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Http\Controllers\Settings\SecurityController::middleware`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Settings/SecurityController.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 2
+
+[[issues]]
+file = "app/Http/Controllers/Settings/SecurityController.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $password on class `App\Http\Requests\Settings\PasswordUpdateRequest`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Middleware/HandleInertiaRequests.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Http\Middleware\HandleInertiaRequests::share`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Middleware/HandleInertiaRequests.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Http\Middleware\HandleInertiaRequests::version`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Requests/Settings/ProfileUpdateRequest.php"
+code = "mixed-argument"
+message = 'Invalid argument type for argument #1 of `app\concerns\profilevalidationrules::profilerules`: expected `int|null`, but found `mixed`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Requests/Settings/ProfileUpdateRequest.php"
+code = "mixed-property-access"
+message = "Attempting to access a property on a non-object type (`mixed`)."
+count = 1
+
+[[issues]]
+file = "app/Models/User.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Models\User::casts`.'
+count = 1
+
+[[issues]]
+file = "app/Providers/AppServiceProvider.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Providers\AppServiceProvider::register`.'
+count = 1
+
+[[issues]]
+file = "app/Providers/AppServiceProvider.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `use` on class `Illuminate\Support\Facades\Date`.'
+count = 1
+
+[[issues]]
+file = "app/Providers/AppServiceProvider.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `InvalidArgumentException` in `App\Providers\AppServiceProvider::configureDefaults`.'
+count = 1
+
+[[issues]]
+file = "app/Providers/FortifyServiceProvider.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Providers\FortifyServiceProvider::register`.'
+count = 1
+
+[[issues]]
+file = "app/Providers/FortifyServiceProvider.php"
+code = "mixed-argument"
+message = 'Invalid argument type for argument #1 of `illuminate\support\str::lower`: expected `string`, but found `mixed`.'
+count = 1
+
+[[issues]]
+file = "app/Providers/FortifyServiceProvider.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email on class `Illuminate\Http\Request`.'
+count = 1
+
+[[issues]]
+file = "app/Providers/FortifyServiceProvider.php"
+code = "possibly-null-operand"
+message = "Possibly null right operand used in string concatenation (type `null|string`)."
+count = 1
+
+[[issues]]
+file = "database/factories/UserFactory.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `Database\Factories\UserFactory::definition`.'
+count = 1
+
+[[issues]]
+file = "database/factories/UserFactory.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `OverflowException` in `Database\Factories\UserFactory::definition`.'
+count = 1
+
+[[issues]]
+file = "database/factories/UserFactory.php"
+code = "unused-parameter"
+message = "Parameter `$attributes` is never used."
+count = 2
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "less-specific-nested-argument-type"
+message = "Argument type mismatch for argument #2 of `implode`: expected `array<array-key, Stringable|null|scalar>|null`, but provided type `list{mixed, string('127.0.0.1')}` is less specific."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "missing-return-type"
+message = "Function `test_login_screen_can_be_rendered` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "missing-return-type"
+message = "Function `test_users_are_rate_limited` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "missing-return-type"
+message = "Function `test_users_can_authenticate_using_the_login_screen` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "missing-return-type"
+message = "Function `test_users_can_logout` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "missing-return-type"
+message = "Function `test_users_can_not_authenticate_with_invalid_password` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "missing-return-type"
+message = "Function `test_users_with_two_factor_enabled_are_redirected_to_two_factor_challenge` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `forcefill` on class `Illuminate\Database\Eloquent\Collection`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email on class `App\Models\User`.'
+count = 4
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email on class `Illuminate\Database\Eloquent\Collection`.'
+count = 4
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $id on class `App\Models\User`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $id on class `Illuminate\Database\Eloquent\Collection`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/AuthenticationTest.php"
+code = "possibly-invalid-argument"
+message = 'Possible argument type mismatch for argument #1 of `illuminate\foundation\testing\concerns\interactswithauthentication::actingas`: expected `Illuminate\Contracts\Auth\Authenticatable`, but possibly received `App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `Tests\Feature\Auth\EmailVerificationTest::setUp`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "missing-return-type"
+message = "Function `test_email_can_be_verified` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "missing-return-type"
+message = "Function `test_email_is_not_verified_with_invalid_hash` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "missing-return-type"
+message = "Function `test_email_verification_screen_can_be_rendered` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "mixed-argument"
+message = "Invalid argument type for argument #1 of `sha1`: expected `string`, but found `mixed`."
+count = 3
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `hasverifiedemail` on class `Illuminate\Database\Eloquent\Collection`.'
+count = 4
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email on class `App\Models\User`.'
+count = 3
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email on class `Illuminate\Database\Eloquent\Collection`.'
+count = 3
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $id on class `App\Models\User`.'
+count = 3
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $id on class `Illuminate\Database\Eloquent\Collection`.'
+count = 3
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "non-existent-method"
+message = 'Method `assertfalse` does not exist on type `Tests\Feature\Auth\EmailVerificationTest`.'
+count = 2
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "non-existent-method"
+message = 'Method `asserttrue` does not exist on type `Tests\Feature\Auth\EmailVerificationTest`.'
+count = 2
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "possible-method-access-on-null"
+message = "Attempting to call a method on `null`."
+count = 4
+
+[[issues]]
+file = "tests/Feature/Auth/EmailVerificationTest.php"
+code = "possibly-invalid-argument"
+message = 'Possible argument type mismatch for argument #1 of `illuminate\foundation\testing\concerns\interactswithauthentication::actingas`: expected `Illuminate\Contracts\Auth\Authenticatable`, but possibly received `App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>`.'
+count = 6
+
+[[issues]]
+file = "tests/Feature/Auth/PasswordConfirmationTest.php"
+code = "missing-return-type"
+message = "Function `test_confirm_password_screen_can_be_rendered` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/PasswordConfirmationTest.php"
+code = "missing-return-type"
+message = "Function `test_password_confirmation_requires_authentication` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/PasswordConfirmationTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `assertinertia` on class `Illuminate\Testing\TestResponse`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/PasswordConfirmationTest.php"
+code = "possibly-invalid-argument"
+message = 'Possible argument type mismatch for argument #1 of `illuminate\foundation\testing\concerns\interactswithauthentication::actingas`: expected `Illuminate\Contracts\Auth\Authenticatable`, but possibly received `App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/PasswordResetTest.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `Tests\Feature\Auth\PasswordResetTest::setUp`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/PasswordResetTest.php"
+code = "missing-return-type"
+message = "Function `test_password_can_be_reset_with_valid_token` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/PasswordResetTest.php"
+code = "missing-return-type"
+message = "Function `test_reset_password_link_can_be_requested` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/PasswordResetTest.php"
+code = "missing-return-type"
+message = "Function `test_reset_password_link_screen_can_be_rendered` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/PasswordResetTest.php"
+code = "missing-return-type"
+message = "Function `test_reset_password_screen_can_be_rendered` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/PasswordResetTest.php"
+code = "mixed-property-access"
+message = "Attempting to access a property on a non-object type (`mixed`)."
+count = 2
+
+[[issues]]
+file = "tests/Feature/Auth/PasswordResetTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email on class `App\Models\User`.'
+count = 4
+
+[[issues]]
+file = "tests/Feature/Auth/PasswordResetTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email on class `Illuminate\Database\Eloquent\Collection`.'
+count = 4
+
+[[issues]]
+file = "tests/Feature/Auth/RegistrationTest.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `Tests\Feature\Auth\RegistrationTest::setUp`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/RegistrationTest.php"
+code = "missing-return-type"
+message = "Function `test_new_users_can_register` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/RegistrationTest.php"
+code = "missing-return-type"
+message = "Function `test_registration_screen_can_be_rendered` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/TwoFactorChallengeTest.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `Tests\Feature\Auth\TwoFactorChallengeTest::setUp`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/TwoFactorChallengeTest.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/TwoFactorChallengeTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `assertinertia` on class `Illuminate\Testing\TestResponse`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/TwoFactorChallengeTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `forcefill` on class `Illuminate\Database\Eloquent\Collection`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/TwoFactorChallengeTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email on class `App\Models\User`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/TwoFactorChallengeTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email on class `Illuminate\Database\Eloquent\Collection`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/VerificationNotificationTest.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `Tests\Feature\Auth\VerificationNotificationTest::setUp`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Auth/VerificationNotificationTest.php"
+code = "possibly-invalid-argument"
+message = 'Possible argument type mismatch for argument #1 of `illuminate\foundation\testing\concerns\interactswithauthentication::actingas`: expected `Illuminate\Contracts\Auth\Authenticatable`, but possibly received `App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>`.'
+count = 2
+
+[[issues]]
+file = "tests/Feature/DashboardTest.php"
+code = "missing-return-type"
+message = "Function `test_authenticated_users_can_visit_the_dashboard` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/DashboardTest.php"
+code = "missing-return-type"
+message = "Function `test_guests_are_redirected_to_the_login_page` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/DashboardTest.php"
+code = "possibly-invalid-argument"
+message = 'Possible argument type mismatch for argument #1 of `illuminate\foundation\testing\concerns\interactswithauthentication::actingas`: expected `Illuminate\Contracts\Auth\Authenticatable`, but possibly received `App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/ExampleTest.php"
+code = "missing-return-type"
+message = "Function `test_returns_a_successful_response` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "missing-return-type"
+message = "Function `test_correct_password_must_be_provided_to_delete_account` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "missing-return-type"
+message = "Function `test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "missing-return-type"
+message = "Function `test_profile_information_can_be_updated` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "missing-return-type"
+message = "Function `test_profile_page_is_displayed` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "missing-return-type"
+message = "Function `test_user_can_delete_their_account` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `refresh` on class `Illuminate\Database\Eloquent\Collection`.'
+count = 2
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email on class `App\Models\User`.'
+count = 2
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email on class `Illuminate\Database\Eloquent\Collection`.'
+count = 2
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email_verified_at on class `App\Models\User`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $email_verified_at on class `Illuminate\Database\Eloquent\Collection`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $name on class `App\Models\User`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $name on class `Illuminate\Database\Eloquent\Collection`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "non-existent-method"
+message = 'Method `assertnotnull` does not exist on type `Tests\Feature\Settings\ProfileUpdateTest`.'
+count = 2
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "non-existent-method"
+message = 'Method `assertnull` does not exist on type `Tests\Feature\Settings\ProfileUpdateTest`.'
+count = 2
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "non-existent-method"
+message = 'Method `assertsame` does not exist on type `Tests\Feature\Settings\ProfileUpdateTest`.'
+count = 2
+
+[[issues]]
+file = "tests/Feature/Settings/ProfileUpdateTest.php"
+code = "possibly-invalid-argument"
+message = 'Possible argument type mismatch for argument #1 of `illuminate\foundation\testing\concerns\interactswithauthentication::actingas`: expected `Illuminate\Contracts\Auth\Authenticatable`, but possibly received `App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>`.'
+count = 5
+
+[[issues]]
+file = "tests/Feature/Settings/SecurityTest.php"
+code = "missing-return-type"
+message = "Function `test_correct_password_must_be_provided_to_update_password` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/SecurityTest.php"
+code = "missing-return-type"
+message = "Function `test_password_can_be_updated` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/SecurityTest.php"
+code = "missing-return-type"
+message = "Function `test_security_page_does_not_require_password_confirmation_when_disabled` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/SecurityTest.php"
+code = "missing-return-type"
+message = "Function `test_security_page_is_displayed` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/SecurityTest.php"
+code = "missing-return-type"
+message = "Function `test_security_page_renders_without_two_factor_when_feature_is_disabled` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/SecurityTest.php"
+code = "missing-return-type"
+message = "Function `test_security_page_requires_password_confirmation_when_enabled` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/SecurityTest.php"
+code = "no-value"
+message = 'Argument #2 passed to method `illuminate\support\facades\hash::check` has type `never`, meaning it cannot produce a value.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/SecurityTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `assertinertia` on class `Illuminate\Testing\TestResponse`.'
+count = 3
+
+[[issues]]
+file = "tests/Feature/Settings/SecurityTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `refresh` on class `Illuminate\Database\Eloquent\Collection`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/SecurityTest.php"
+code = "non-existent-method"
+message = 'Method `asserttrue` does not exist on type `Tests\Feature\Settings\SecurityTest`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/Settings/SecurityTest.php"
+code = "possibly-invalid-argument"
+message = 'Possible argument type mismatch for argument #1 of `illuminate\foundation\testing\concerns\interactswithauthentication::actingas`: expected `Illuminate\Contracts\Auth\Authenticatable`, but possibly received `App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>`.'
+count = 6
+
+[[issues]]
+file = "tests/TestCase.php"
+code = "non-existent-method"
+message = 'Method `marktestskipped` does not exist on type `Tests\TestCase`.'
+count = 1
+
+[[issues]]
+file = "tests/Unit/ExampleTest.php"
+code = "missing-return-type"
+message = "Function `test_that_true_is_true` is missing a return type hint."
+count = 1
+
+[[issues]]
+file = "tests/Unit/ExampleTest.php"
+code = "non-existent-method"
+message = 'Method `asserttrue` does not exist on type `Tests\Unit\ExampleTest`.'
+count = 1
