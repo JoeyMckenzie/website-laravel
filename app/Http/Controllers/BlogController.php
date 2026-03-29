@@ -14,9 +14,9 @@ final class BlogController extends Controller
 {
     public function index(): Response
     {
-        $resolver = fn () => Post::query()
+        $resolver = static fn () => Post::query()
             ->with('tag:id,name')
-            ->when(app()->isProduction(), fn ($query) => $query->published())
+            ->when(app()->isProduction(), static fn ($query) => $query->published())
             ->latestPublished()
             ->get([
                 'slug',

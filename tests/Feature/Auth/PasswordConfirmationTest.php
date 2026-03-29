@@ -1,5 +1,8 @@
 <?php
 
+declare(strict_types=1);
+
+
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
@@ -19,7 +22,7 @@ class PasswordConfirmationTest extends TestCase
 
         $response->assertOk();
 
-        $response->assertInertia(fn (Assert $page) => $page->component('auth/confirm-password'));
+        $response->assertInertia(static fn (Assert $page) => $page->component('auth/confirm-password'));
     }
 
     public function test_password_confirmation_requires_authentication()

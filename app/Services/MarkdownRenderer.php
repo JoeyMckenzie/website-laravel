@@ -21,11 +21,9 @@ final class MarkdownRenderer
     public function render(string $slug, string $content): string
     {
         /** @var string $parsedContent */
-        $parsedContent = app()->isProduction()
+        return app()->isProduction()
             ? Cache::rememberForever($slug, fn () => $this->convert($content))
             : $this->convert($content);
-
-        return $parsedContent;
     }
 
     /**
