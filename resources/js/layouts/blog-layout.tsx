@@ -1,7 +1,8 @@
 import { Link } from '@inertiajs/react';
-import AppLogoIcon from '@/components/app-logo-icon';
-import { home } from '@/routes';
 import { index } from '@/actions/App/Http/Controllers/BlogController';
+import AppLogoIcon from '@/components/app-logo-icon';
+import SpotifyNowPlaying from '@/components/spotify-now-playing';
+import { guestbook, home, now, uses } from '@/routes';
 
 export default function BlogLayout({
     children,
@@ -26,15 +27,38 @@ export default function BlogLayout({
                             Home
                         </Link>
                         <Link
+                            href={now()}
+                            className="text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            Now
+                        </Link>
+                        <Link
                             href={index()}
                             className="text-muted-foreground transition-colors hover:text-foreground"
                         >
                             Blog
                         </Link>
+                        <Link
+                            href={uses()}
+                            className="text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            Uses
+                        </Link>
+                        <Link
+                            href={guestbook()}
+                            className="text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            Guestbook
+                        </Link>
                     </nav>
                 </div>
             </header>
             <main className="mx-auto max-w-3xl px-6 py-10">{children}</main>
+            <footer className="border-t border-border">
+                <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+                    <SpotifyNowPlaying />
+                </div>
+            </footer>
         </div>
     );
 }

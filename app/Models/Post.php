@@ -24,6 +24,7 @@ use Orbit\Concerns\Orbital;
  * @property string $storage_key
  * @property int $tag_id
  * @property-read string $formatted_published_at
+ * @property-read int $reading_time_minutes
  * @property-read Tag $tag
  *
  * @method static Builder<static>|Post latestPublished()
@@ -46,6 +47,9 @@ final class Post extends Model
 {
     use Orbital;
 
+    /** @var list<string> */
+    protected $appends = ['formatted_published_at', 'reading_time_minutes'];
+
     public static function schema(Blueprint $table): void
     {
         $table->string('title');
@@ -67,6 +71,16 @@ final class Post extends Model
             fn (): string => $this->published_at !== null
                 ? Date::parse($this->published_at)->format('M d, Y')
                 : Date::now()->format('M d, Y'),
+        );
+    }
+
+    /**
+     * @return Attribute<positive-int, never>
+     */
+    public function readingTimeMinutes(): Attribute
+    {
+        return Attribute::get(
+            fn (): int => (int) max(1, ceil(str_word_count(strip_tags($this->content ?? '')) / 200)),
         );
     }
 

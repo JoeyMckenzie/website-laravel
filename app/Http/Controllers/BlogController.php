@@ -5,18 +5,31 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Tag;
 use App\Services\MarkdownRenderer;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
 final class BlogController extends Controller
 {
-    public function index(): Response
+    public function index(Request $request): Response
     {
-        $resolver = static fn () => Post::query()
+        $selectedTag = $request->query('tag');
+        $search = $request->query('search');
+
+        $posts = Post::query()
             ->with('tag:id,name')
             ->when(app()->isProduction(), static fn ($query) => $query->published())
+            ->when(is_string($selectedTag), static fn ($query) => $query->whereHas(
+                'tag',
+                static fn ($q) => $q->where('name', $selectedTag),
+            ))
+            ->when(is_string($search) && $search !== '', static fn ($query) => $query->where(
+                static fn ($q) => $q
+                    ->where('title', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%"),
+            ))
             ->latestPublished()
             ->get([
                 'slug',
@@ -28,12 +41,11 @@ final class BlogController extends Controller
                 'storage_key',
             ]);
 
-        $posts = app()->isProduction()
-            ? Cache::remember('blog:posts', now()->addMinutes(5), $resolver)
-            : $resolver();
-
         return Inertia::render('blog/index', [
             'posts' => $posts,
+            'tags' => Tag::all(),
+            'selectedTag' => $selectedTag,
+            'search' => $search,
         ]);
     }
 

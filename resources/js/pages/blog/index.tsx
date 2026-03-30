@@ -1,8 +1,39 @@
-import { Head, Link } from '@inertiajs/react';
-import { show } from '@/actions/App/Http/Controllers/BlogController';
-import type { PostSummary } from '@/types';
+import { Head, Link, router } from '@inertiajs/react';
+import { useRef } from 'react';
+import { index } from '@/actions/App/Http/Controllers/BlogController';
+import PostPreviewCard from '@/components/post-preview-card';
+import type { PostSummary, Tag } from '@/types';
 
-export default function BlogIndex({ posts }: { posts: PostSummary[] }) {
+export default function BlogIndex({
+    posts,
+    tags,
+    selectedTag,
+    search,
+}: {
+    posts: PostSummary[];
+    tags: Tag[];
+    selectedTag: string | null;
+    search: string | null;
+}) {
+    const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
+
+    function handleSearch(value: string) {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+
+        timeoutRef.current = setTimeout(() => {
+            router.get(
+                index.url(),
+                {
+                    ...(selectedTag ? { tag: selectedTag } : {}),
+                    ...(value ? { search: value } : {}),
+                },
+                { preserveState: true, preserveScroll: true },
+            );
+        }, 300);
+    }
+
     return (
         <>
             <Head title="Blog">
@@ -20,28 +51,56 @@ export default function BlogIndex({ posts }: { posts: PostSummary[] }) {
                 </p>
             </div>
 
-            <div className="mt-10 space-y-8">
-                {posts.map((post) => (
-                    <article key={post.slug}>
+            <div className="mt-6 space-y-4">
+                <input
+                    type="text"
+                    placeholder="Search posts..."
+                    defaultValue={search ?? ''}
+                    onChange={(e) => handleSearch(e.target.value)}
+                    className="w-full rounded-lg border border-border bg-background px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                />
+
+                <div className="flex flex-wrap gap-2">
+                    <Link
+                        href={index.url()}
+                        preserveScroll
+                        className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                            !selectedTag
+                                ? 'bg-foreground text-background'
+                                : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                        }`}
+                    >
+                        All
+                    </Link>
+                    {tags.map((tag) => (
                         <Link
-                            href={show(post.slug)}
-                            className="group block space-y-2"
+                            key={tag.id}
+                            href={index.url({
+                                query: { tag: tag.name },
+                            })}
+                            preserveScroll
+                            className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                                selectedTag === tag.name
+                                    ? 'bg-foreground text-background'
+                                    : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                            }`}
                         >
-                            <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                                <time>{post.formatted_published_at}</time>
-                                <span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-secondary-foreground">
-                                    {post.tag.hash_tagged}
-                                </span>
-                            </div>
-                            <h2 className="text-xl font-semibold group-hover:underline">
-                                {post.title}
-                            </h2>
-                            <p className="text-muted-foreground">
-                                {post.description}
-                            </p>
+                            {tag.hash_tagged}
                         </Link>
-                    </article>
-                ))}
+                    ))}
+                </div>
+            </div>
+
+            <div className="mt-8 space-y-8">
+                {posts.length > 0 ? (
+                    posts.map((post) => (
+                        <PostPreviewCard key={post.slug} post={post} />
+                    ))
+                ) : (
+                    <p className="text-center text-muted-foreground">
+                        No posts found.
+                    </p>
+                )}
             </div>
         </>
     );

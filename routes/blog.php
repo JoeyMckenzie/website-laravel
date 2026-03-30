@@ -17,6 +17,9 @@ Route::get('/feed.xml', [FeedController::class, 'rss'])->name('feed');
 Route::get('/sitemap.xml', function () {
     $sitemap = Sitemap::create()
         ->add(Url::create('/'))
+        ->add(Url::create('/now'))
+        ->add(Url::create('/uses'))
+        ->add(Url::create('/guestbook'))
         ->add(Url::create('/blog'));
 
     Post::query()

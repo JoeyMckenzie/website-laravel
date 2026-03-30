@@ -12,6 +12,7 @@ export type PostSummary = {
     tag_id: number;
     published_at: string | null;
     formatted_published_at: string;
+    reading_time_minutes: number;
     tag: Tag;
 };
 
@@ -22,5 +23,6 @@ export type PostDetail = {
     image: string;
     published_at: string | null;
     formatted_published_at: string;
+    reading_time_minutes: number;
     tag: Tag;
 };

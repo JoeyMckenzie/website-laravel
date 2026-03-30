@@ -35,4 +35,16 @@ return [
         ],
     ],
 
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect' => env('GITHUB_REDIRECT_URI', '/auth/github/callback'),
+    ],
+
+    'spotify' => [
+        'client_id' => env('SPOTIFY_CLIENT_ID', ''),
+        'client_secret' => env('SPOTIFY_CLIENT_SECRET', ''),
+        'refresh_token' => env('SPOTIFY_REFRESH_TOKEN', ''),
+    ],
+
 ];
