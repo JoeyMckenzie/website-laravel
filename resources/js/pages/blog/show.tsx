@@ -34,15 +34,6 @@ export default function BlogShow({
                 )}
             </Head>
 
-            <div className="mb-8">
-                <Link
-                    href={index()}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                    &larr; Back to blog
-                </Link>
-            </div>
-
             <header className="mb-10 space-y-3">
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <time>{post.formatted_published_at}</time>

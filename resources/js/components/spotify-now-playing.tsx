@@ -14,7 +14,7 @@ function SpotifyIcon({ className }: { className?: string }) {
     );
 }
 
-export default function SpotifyNowPlaying() {
+export function SpotifyNowPlaying() {
     const [nowPlaying, setNowPlaying] = useState<NowPlaying | null>(null);
 
     useEffect(() => {
@@ -39,7 +39,7 @@ export default function SpotifyNowPlaying() {
         return (
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <SpotifyIcon className="size-5 text-[#1DB954]" />
-                <span>Not listening to anything</span>
+                <span>Not listening</span>
             </div>
         );
     }

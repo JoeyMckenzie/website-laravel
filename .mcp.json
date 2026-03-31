@@ -11,6 +11,10 @@
         "shadcn": {
             "command": "bunx",
             "args": ["shadcn@latest", "mcp"]
+        },
+        "magicuidesign-mcp": {
+            "command": "bunx",
+            "args": ["-y", "@magicuidesign/mcp@latest"]
         }
     }
 }

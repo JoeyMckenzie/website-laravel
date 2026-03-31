@@ -2,34 +2,25 @@ import { Head } from '@inertiajs/react';
 
 const sections = [
     {
-        title: 'Editor',
-        items: [
-            { name: 'PhpStorm', description: 'Primary IDE for PHP and Laravel development' },
-            { name: 'VS Code', description: 'For frontend work and quick edits' },
-            { name: 'JetBrains Mono', description: 'Font of choice across all editors and terminals' },
-        ],
-    },
-    {
-        title: 'Terminal',
-        items: [
-            { name: 'Warp', description: 'Modern terminal with AI features' },
-            { name: 'Oh My Zsh', description: 'Shell framework with plugins and themes' },
-            { name: 'Laravel Herd', description: 'One-click PHP development environment' },
-        ],
-    },
-    {
         title: 'Stack',
         items: [
-            { name: 'Laravel', description: 'Backend framework of choice' },
-            { name: 'React + TypeScript', description: 'Frontend framework via Inertia.js' },
-            { name: 'Tailwind CSS', description: 'Utility-first CSS' },
-            { name: 'SQLite / MySQL', description: 'Database depending on the project' },
+            { name: 'Laravel', description: 'As the good Lord intended' },
+            {
+                name: 'React + TypeScript',
+                description:
+                    "At some point it's easier to follow the zeitgeist",
+            },
+            { name: 'Tailwind', description: 'Self-explanatory' },
+            {
+                name: 'SQLite / MySQL',
+                description: "I'll get around to Postgres eventually...",
+            },
         ],
     },
     {
         title: 'Software',
         items: [
-            { name: 'Arc', description: 'Browser of choice' },
+            { name: 'Zen', description: 'Browser of choice' },
             { name: 'Figma', description: 'Design and prototyping' },
             { name: 'TablePlus', description: 'Database management' },
             { name: 'Raycast', description: 'Launcher and productivity' },
@@ -66,15 +57,11 @@ export default function Uses() {
                     key={section.title}
                     className="mt-8 space-y-3 border-t pt-6"
                 >
-                    <h2 className="text-2xl tracking-tight">
-                        {section.title}
-                    </h2>
+                    <h2 className="text-2xl tracking-tight">{section.title}</h2>
                     <ul className="space-y-3">
                         {section.items.map((item) => (
                             <li key={item.name}>
-                                <span className="font-medium">
-                                    {item.name}
-                                </span>
+                                <span className="font-medium">{item.name}</span>
                                 <span className="text-muted-foreground">
                                     {' '}
                                     &mdash; {item.description}
