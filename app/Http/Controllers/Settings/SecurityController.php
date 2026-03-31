@@ -21,11 +21,12 @@ final class SecurityController extends Controller implements HasMiddleware
      */
     public static function middleware(): array
     {
-        return
+        return (
             Features::canManageTwoFactorAuthentication()
             && Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword')
                 ? [new Middleware('password.confirm', only: ['edit'])]
-                : [];
+                : []
+        );
     }
 
     /**
