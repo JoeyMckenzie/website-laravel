@@ -607,7 +607,7 @@ Now that we'll have access to the HTTP client, let's test out a call to the repo
 curl --request GET \
 --url "https://api.github.com/repos/joeymckenzie/realworld-rust-axum-sqlx" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer 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"
+--header "Authorization: Bearer ghp_7Yg..."
 {
   "id": 485222387,
   "node_id": "R_kgDOHOvn8w",
