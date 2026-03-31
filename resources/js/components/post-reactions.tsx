@@ -9,7 +9,9 @@ const reactions: { type: ReactionType; emoji: string; label: string }[] = [
 ];
 
 export default function PostReactions({ slug }: { slug: string }) {
-    const [counts, setCounts] = useState<Partial<Record<ReactionType, number>>>({});
+    const [counts, setCounts] = useState<Partial<Record<ReactionType, number>>>(
+        {},
+    );
     const [userReactions, setUserReactions] = useState<ReactionType[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 

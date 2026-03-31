@@ -22,7 +22,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: oven-sh/setup-bun@v2
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -32,16 +31,19 @@ jobs:
       - name: Install Dependencies
         run: |
           composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-          bun install
+          npm install
 
-      - name: Run Pint
+      - name: Run mago lint
         run: composer lint
 
+      - name: Run mago formatter
+        run: composer fmt
+
       - name: Format Frontend
-        run: bun run fmt
+        run: npm run fmt
 
       - name: Lint Frontend
-        run: bun run lint
+        run: npm run lint
 
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v7

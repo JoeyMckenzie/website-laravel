@@ -1,6 +1,5 @@
-import { Head, Link } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import { useEffect } from 'react';
-import { index } from '@/actions/App/Http/Controllers/BlogController';
 import PostReactions from '@/components/post-reactions';
 import type { PostDetail } from '@/types';
 

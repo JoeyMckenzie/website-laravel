@@ -1,5 +1,5 @@
 import { Head, router, useForm } from '@inertiajs/react';
-import { Github, Trash2 } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 import type { GithubUser, GuestbookEntry } from '@/types';
 
 export default function Guestbook({
