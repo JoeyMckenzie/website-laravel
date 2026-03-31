@@ -26,14 +26,16 @@ final class HomeController extends Controller
                 'tag_id',
                 'published_at',
                 'storage_key',
-            ]);
+            ])
+            ->values()
+            ->toArray();
 
         $recentPosts = app()->isProduction()
             ? Cache::remember('home:recent_posts', now()->addMinutes(5), $resolver)
             : $resolver();
 
         return Inertia::render('home', [
-            'recentPosts' => $recentPosts->values(),
+            'recentPosts' => $recentPosts,
         ]);
     }
 }
