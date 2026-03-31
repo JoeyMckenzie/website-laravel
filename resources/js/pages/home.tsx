@@ -1,6 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
-import PostPreviewCard from '@/components/post-preview-card';
 import { index } from '@/actions/App/Http/Controllers/BlogController';
+import PostPreviewCard from '@/components/post-preview-card';
 import type { PostSummary } from '@/types';
 
 export default function Home({ recentPosts }: { recentPosts: PostSummary[] }) {
