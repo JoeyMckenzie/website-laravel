@@ -33,7 +33,7 @@ final class HomeController extends Controller
             : $resolver();
 
         return Inertia::render('home', [
-            'recentPosts' => $recentPosts,
+            'recentPosts' => $recentPosts->values(),
         ]);
     }
 }
