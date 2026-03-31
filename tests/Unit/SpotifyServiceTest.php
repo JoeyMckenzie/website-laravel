@@ -11,6 +11,7 @@ use Tests\TestCase;
 
 class SpotifyServiceTest extends TestCase
 {
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -49,7 +50,7 @@ class SpotifyServiceTest extends TestCase
             ]),
         ]);
 
-        $service = new SpotifyService;
+        $service = new SpotifyService();
         $result = $service->nowPlaying();
 
         static::assertNotNull($result);
@@ -83,7 +84,7 @@ class SpotifyServiceTest extends TestCase
             ]),
         ]);
 
-        $service = new SpotifyService;
+        $service = new SpotifyService();
         $result = $service->nowPlaying();
 
         static::assertNotNull($result);
@@ -104,7 +105,7 @@ class SpotifyServiceTest extends TestCase
             'api.spotify.com/v1/me/player*' => Http::response(null, 204),
         ]);
 
-        $service = new SpotifyService;
+        $service = new SpotifyService();
         $result = $service->nowPlaying();
 
         static::assertNull($result);
@@ -122,7 +123,7 @@ class SpotifyServiceTest extends TestCase
             'api.spotify.com/v1/me/player*' => Http::response(null, 500),
         ]);
 
-        $service = new SpotifyService;
+        $service = new SpotifyService();
         $result = $service->nowPlaying();
 
         static::assertNull($result);
@@ -140,7 +141,7 @@ class SpotifyServiceTest extends TestCase
             'api.spotify.com/v1/me/player*' => Http::response(null, 204),
         ]);
 
-        $service = new SpotifyService;
+        $service = new SpotifyService();
         $service->nowPlaying();
         $service->nowPlaying();
 

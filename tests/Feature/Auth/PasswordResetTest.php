@@ -15,6 +15,7 @@ class PasswordResetTest extends TestCase
 {
     use RefreshDatabase;
 
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -22,14 +23,14 @@ class PasswordResetTest extends TestCase
         $this->skipUnlessFortifyFeature(Features::resetPasswords());
     }
 
-    public function test_reset_password_link_screen_can_be_rendered()
+    public function test_reset_password_link_screen_can_be_rendered(): void
     {
         $response = $this->get(route('password.request'));
 
         $response->assertOk();
     }
 
-    public function test_reset_password_link_can_be_requested()
+    public function test_reset_password_link_can_be_requested(): void
     {
         Notification::fake();
 
@@ -40,7 +41,7 @@ class PasswordResetTest extends TestCase
         Notification::assertSentTo($user, ResetPassword::class);
     }
 
-    public function test_reset_password_screen_can_be_rendered()
+    public function test_reset_password_screen_can_be_rendered(): void
     {
         Notification::fake();
 
@@ -57,7 +58,7 @@ class PasswordResetTest extends TestCase
         });
     }
 
-    public function test_password_can_be_reset_with_valid_token()
+    public function test_password_can_be_reset_with_valid_token(): void
     {
         Notification::fake();
 

@@ -12,6 +12,7 @@ use League\CommonMark\Util\HtmlElement;
 
 final class MermaidRenderer implements NodeRendererInterface
 {
+    #[\Override]
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): ?HtmlElement
     {
         if (!$node instanceof FencedCode) {

@@ -63,6 +63,8 @@ final class FeedController extends Controller
 
     private function formatRssDate(?string $date): string
     {
-        return $date !== null ? date('r', strtotime($date)) : date('r');
+        $timestamp = $date !== null ? strtotime($date) : false;
+
+        return date('r', $timestamp !== false ? $timestamp : time());
     }
 }

@@ -19,6 +19,7 @@ class CreateNewUser implements CreatesNewUsers
      *
      * @param  array<string, string>  $input
      */
+    #[\Override]
     public function create(array $input): User
     {
         Validator::make($input, [
@@ -26,6 +27,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
+        /** @var User */
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],

@@ -20,10 +20,11 @@ final class MarkdownRenderer
      */
     public function render(string $slug, string $content): string
     {
-        /** @var string $parsedContent */
-        return app()->isProduction()
-            ? Cache::rememberForever($slug, fn() => $this->convert($content))
-            : $this->convert($content);
+        return (string) (
+            app()->isProduction()
+                ? Cache::rememberForever($slug, fn() => $this->convert($content))
+                : $this->convert($content)
+        );
     }
 
     /**

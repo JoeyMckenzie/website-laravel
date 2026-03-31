@@ -38,7 +38,7 @@ final class SpotifyService
 
     private function getAccessToken(): string
     {
-        return Cache::remember('spotify:access_token', 600, static function (): string {
+        return (string) Cache::remember('spotify:access_token', 600, static function (): string {
             $clientId = Config::string('services.spotify.client_id');
             $clientSecret = Config::string('services.spotify.client_secret');
             $refreshToken = Config::string('services.spotify.refresh_token');
@@ -50,7 +50,7 @@ final class SpotifyService
                     'refresh_token' => $refreshToken,
                 ]);
 
-            return $response->json('access_token');
+            return (string) $response->json('access_token');
         });
     }
 }

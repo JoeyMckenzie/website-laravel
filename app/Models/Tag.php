@@ -31,7 +31,7 @@ final class Tag extends Model
 {
     use Sushi;
 
-    /** @var list<string> */
+    /** @var array<array-key, mixed> */
     protected $appends = ['hash_tagged'];
 
     /**

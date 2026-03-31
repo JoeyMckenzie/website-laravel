@@ -8,18 +8,6 @@ count = 1
 
 [[issues]]
 file = "app/Actions/Fortify/CreateNewUser.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Actions\Fortify\CreateNewUser::create`.'
-count = 1
-
-[[issues]]
-file = "app/Actions/Fortify/CreateNewUser.php"
-code = "mixed-return-statement"
-message = 'Could not infer a precise return type for function `app\actions\fortify\createnewuser::create`. Saw type `mixed`.'
-count = 1
-
-[[issues]]
-file = "app/Actions/Fortify/CreateNewUser.php"
 code = "non-documented-method"
 message = 'Ambiguous method call to `create` on class `App\Models\User`.'
 count = 1
@@ -128,21 +116,9 @@ count = 1
 
 [[issues]]
 file = "app/Http/Controllers/Auth/GithubController.php"
-code = "mixed-return-statement"
-message = 'Could not infer a precise return type for function `app\http\controllers\auth\githubcontroller::redirect`. Saw type `mixed`.'
-count = 1
-
-[[issues]]
-file = "app/Http/Controllers/Auth/GithubController.php"
 code = "non-existent-method"
 message = 'Method `scopes` does not exist on type `Laravel\Socialite\Contracts\Provider`.'
 count = 1
-
-[[issues]]
-file = "app/Http/Controllers/BlogController.php"
-code = "array-to-string-conversion"
-message = "Potentially casting `array` to `string`."
-count = 2
 
 [[issues]]
 file = "app/Http/Controllers/BlogController.php"
@@ -163,12 +139,6 @@ message = 'Ambiguous method call to `published` on class `Illuminate\Database\El
 count = 1
 
 [[issues]]
-file = "app/Http/Controllers/BlogController.php"
-code = "unhandled-thrown-type"
-message = 'Potentially unhandled exception `League\CommonMark\Exception\CommonMarkException` in `App\Http\Controllers\BlogController::show`.'
-count = 1
-
-[[issues]]
 file = "app/Http/Controllers/FeedController.php"
 code = "mixed-assignment"
 message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
@@ -184,12 +154,6 @@ count = 4
 file = "app/Http/Controllers/FeedController.php"
 code = "non-documented-method"
 message = 'Ambiguous method call to `published` on class `Illuminate\Database\Eloquent\Builder`.'
-count = 1
-
-[[issues]]
-file = "app/Http/Controllers/FeedController.php"
-code = "possibly-false-argument"
-message = "Argument #2 of function `date` is possibly `false`, but parameter type `int|null` does not accept it."
 count = 1
 
 [[issues]]
@@ -314,12 +278,6 @@ count = 1
 
 [[issues]]
 file = "app/Http/Controllers/Settings/SecurityController.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Http\Controllers\Settings\SecurityController::middleware`.'
-count = 1
-
-[[issues]]
-file = "app/Http/Controllers/Settings/SecurityController.php"
 code = "mixed-method-access"
 message = "Attempting to access a method on a non-object type (`mixed`)."
 count = 2
@@ -328,18 +286,6 @@ count = 2
 file = "app/Http/Controllers/Settings/SecurityController.php"
 code = "non-documented-property"
 message = 'Ambiguous property access: $password on class `App\Http\Requests\Settings\PasswordUpdateRequest`.'
-count = 1
-
-[[issues]]
-file = "app/Http/Middleware/HandleInertiaRequests.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Http\Middleware\HandleInertiaRequests::share`.'
-count = 1
-
-[[issues]]
-file = "app/Http/Middleware/HandleInertiaRequests.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Http\Middleware\HandleInertiaRequests::version`.'
 count = 1
 
 [[issues]]
@@ -355,45 +301,9 @@ message = "Attempting to access a property on a non-object type (`mixed`)."
 count = 1
 
 [[issues]]
-file = "app/Models/GuestbookEntry.php"
-code = "incompatible-property-type"
-message = 'Property `App\Models\GuestbookEntry::$fillable` has an incompatible type declaration from docblock.'
-count = 1
-
-[[issues]]
-file = "app/Models/Post.php"
-code = "incompatible-property-type"
-message = 'Property `App\Models\Post::$appends` has an incompatible type declaration from docblock.'
-count = 1
-
-[[issues]]
 file = "app/Models/Post.php"
 code = "invalid-return-tag"
 message = "Failed to resolve `@return` type string."
-count = 1
-
-[[issues]]
-file = "app/Models/Post.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Models\Post::getIncrementing`.'
-count = 1
-
-[[issues]]
-file = "app/Models/Post.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Models\Post::getKeyName`.'
-count = 1
-
-[[issues]]
-file = "app/Models/Post.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Models\Post::getRouteKeyName`.'
-count = 1
-
-[[issues]]
-file = "app/Models/Post.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Models\Post::usesTimestamps`.'
 count = 1
 
 [[issues]]
@@ -405,7 +315,7 @@ count = 2
 [[issues]]
 file = "app/Models/Post.php"
 code = "mixed-return-statement"
-message = "Could not infer a precise return type for function `2451940604892265016:2248`. Saw type `mixed`."
+message = "Could not infer a precise return type for function `2451940604892265016:2259`. Saw type `mixed`."
 count = 1
 
 [[issues]]
@@ -427,18 +337,6 @@ message = "Redundant null coalesce: left-hand side can never be `null` or undefi
 count = 1
 
 [[issues]]
-file = "app/Models/PostReaction.php"
-code = "incompatible-property-type"
-message = 'Property `App\Models\PostReaction::$fillable` has an incompatible type declaration from docblock.'
-count = 1
-
-[[issues]]
-file = "app/Models/Tag.php"
-code = "incompatible-property-type"
-message = 'Property `App\Models\Tag::$appends` has an incompatible type declaration from docblock.'
-count = 1
-
-[[issues]]
 file = "app/Models/Tag.php"
 code = "invalid-return-tag"
 message = "Failed to resolve `@return` type string."
@@ -451,18 +349,6 @@ message = "Property `$rows` is never used."
 count = 1
 
 [[issues]]
-file = "app/Models/User.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Models\User::casts`.'
-count = 1
-
-[[issues]]
-file = "app/Providers/AppServiceProvider.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Providers\AppServiceProvider::register`.'
-count = 1
-
-[[issues]]
 file = "app/Providers/AppServiceProvider.php"
 code = "non-documented-method"
 message = 'Ambiguous method call to `use` on class `Illuminate\Support\Facades\Date`.'
@@ -472,12 +358,6 @@ count = 1
 file = "app/Providers/AppServiceProvider.php"
 code = "unhandled-thrown-type"
 message = 'Potentially unhandled exception `InvalidArgumentException` in `App\Providers\AppServiceProvider::configureDefaults`.'
-count = 1
-
-[[issues]]
-file = "app/Providers/FortifyServiceProvider.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Providers\FortifyServiceProvider::register`.'
 count = 1
 
 [[issues]]
@@ -499,45 +379,9 @@ message = "Possibly null right operand used in string concatenation (type `null|
 count = 1
 
 [[issues]]
-file = "app/Services/CommonMark/MermaidExtension.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Services\CommonMark\MermaidExtension::register`.'
-count = 1
-
-[[issues]]
-file = "app/Services/CommonMark/MermaidExtension.php"
-code = "unhandled-thrown-type"
-message = 'Potentially unhandled exception `League\CommonMark\Exception\AlreadyInitializedException` in `App\Services\CommonMark\MermaidExtension::register`.'
-count = 1
-
-[[issues]]
-file = "app/Services/CommonMark/MermaidRenderer.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `App\Services\CommonMark\MermaidRenderer::render`.'
-count = 1
-
-[[issues]]
-file = "app/Services/MarkdownRenderer.php"
-code = "mixed-return-statement"
-message = 'Could not infer a precise return type for function `app\services\markdownrenderer::render`. Saw type `mixed`.'
-count = 1
-
-[[issues]]
 file = "app/Services/SpotifyService.php"
 code = "mixed-argument"
 message = '''Invalid argument type for argument #1 of `app\data\nowplayingdata::fromspotifyresponse`: expected `array{'currently_playing_type': string, 'item': array{'album': array{'images': array<int, array{'url': string}>}|null, 'artists': array<int, array{'name': string}>|null, 'external_urls': array{'spotify': null|string}, 'name': string, 'show': array{'images': array<int, array{'url': string}>, 'name': string}|null}}`, but found `mixed`.'''
-count = 1
-
-[[issues]]
-file = "app/Services/SpotifyService.php"
-code = "mixed-return-statement"
-message = "Could not infer a precise return type for function `12450875220840123513:1110`. Saw type `mixed`."
-count = 1
-
-[[issues]]
-file = "app/Services/SpotifyService.php"
-code = "mixed-return-statement"
-message = 'Could not infer a precise return type for function `app\services\spotifyservice::getaccesstoken`. Saw type `mixed`.'
 count = 1
 
 [[issues]]
@@ -560,12 +404,6 @@ count = 2
 
 [[issues]]
 file = "database/factories/UserFactory.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `Database\Factories\UserFactory::definition`.'
-count = 1
-
-[[issues]]
-file = "database/factories/UserFactory.php"
 code = "unhandled-thrown-type"
 message = 'Potentially unhandled exception `OverflowException` in `Database\Factories\UserFactory::definition`.'
 count = 1
@@ -580,42 +418,6 @@ count = 2
 file = "tests/Feature/Auth/AuthenticationTest.php"
 code = "less-specific-nested-argument-type"
 message = "Argument type mismatch for argument #2 of `implode`: expected `array<array-key, Stringable|null|scalar>|null`, but provided type `list{mixed, string('127.0.0.1')}` is less specific."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/AuthenticationTest.php"
-code = "missing-return-type"
-message = "Function `test_login_screen_can_be_rendered` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/AuthenticationTest.php"
-code = "missing-return-type"
-message = "Function `test_users_are_rate_limited` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/AuthenticationTest.php"
-code = "missing-return-type"
-message = "Function `test_users_can_authenticate_using_the_login_screen` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/AuthenticationTest.php"
-code = "missing-return-type"
-message = "Function `test_users_can_logout` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/AuthenticationTest.php"
-code = "missing-return-type"
-message = "Function `test_users_can_not_authenticate_with_invalid_password` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/AuthenticationTest.php"
-code = "missing-return-type"
-message = "Function `test_users_with_two_factor_enabled_are_redirected_to_two_factor_challenge` is missing a return type hint."
 count = 1
 
 [[issues]]
@@ -658,30 +460,6 @@ count = 1
 file = "tests/Feature/Auth/AuthenticationTest.php"
 code = "possibly-invalid-argument"
 message = 'Possible argument type mismatch for argument #1 of `illuminate\foundation\testing\concerns\interactswithauthentication::actingas`: expected `Illuminate\Contracts\Auth\Authenticatable`, but possibly received `App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>`.'
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/EmailVerificationTest.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `Tests\Feature\Auth\EmailVerificationTest::setUp`.'
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/EmailVerificationTest.php"
-code = "missing-return-type"
-message = "Function `test_email_can_be_verified` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/EmailVerificationTest.php"
-code = "missing-return-type"
-message = "Function `test_email_is_not_verified_with_invalid_hash` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/EmailVerificationTest.php"
-code = "missing-return-type"
-message = "Function `test_email_verification_screen_can_be_rendered` is missing a return type hint."
 count = 1
 
 [[issues]]
@@ -746,18 +524,6 @@ count = 6
 
 [[issues]]
 file = "tests/Feature/Auth/PasswordConfirmationTest.php"
-code = "missing-return-type"
-message = "Function `test_confirm_password_screen_can_be_rendered` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/PasswordConfirmationTest.php"
-code = "missing-return-type"
-message = "Function `test_password_confirmation_requires_authentication` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/PasswordConfirmationTest.php"
 code = "non-documented-method"
 message = 'Ambiguous method call to `assertinertia` on class `Illuminate\Testing\TestResponse`.'
 count = 1
@@ -766,36 +532,6 @@ count = 1
 file = "tests/Feature/Auth/PasswordConfirmationTest.php"
 code = "possibly-invalid-argument"
 message = 'Possible argument type mismatch for argument #1 of `illuminate\foundation\testing\concerns\interactswithauthentication::actingas`: expected `Illuminate\Contracts\Auth\Authenticatable`, but possibly received `App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>`.'
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/PasswordResetTest.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `Tests\Feature\Auth\PasswordResetTest::setUp`.'
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/PasswordResetTest.php"
-code = "missing-return-type"
-message = "Function `test_password_can_be_reset_with_valid_token` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/PasswordResetTest.php"
-code = "missing-return-type"
-message = "Function `test_reset_password_link_can_be_requested` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/PasswordResetTest.php"
-code = "missing-return-type"
-message = "Function `test_reset_password_link_screen_can_be_rendered` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/PasswordResetTest.php"
-code = "missing-return-type"
-message = "Function `test_reset_password_screen_can_be_rendered` is missing a return type hint."
 count = 1
 
 [[issues]]
@@ -815,30 +551,6 @@ file = "tests/Feature/Auth/PasswordResetTest.php"
 code = "non-documented-property"
 message = 'Ambiguous property access: $email on class `Illuminate\Database\Eloquent\Collection`.'
 count = 4
-
-[[issues]]
-file = "tests/Feature/Auth/RegistrationTest.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `Tests\Feature\Auth\RegistrationTest::setUp`.'
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/RegistrationTest.php"
-code = "missing-return-type"
-message = "Function `test_new_users_can_register` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/RegistrationTest.php"
-code = "missing-return-type"
-message = "Function `test_registration_screen_can_be_rendered` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/TwoFactorChallengeTest.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `Tests\Feature\Auth\TwoFactorChallengeTest::setUp`.'
-count = 1
 
 [[issues]]
 file = "tests/Feature/Auth/TwoFactorChallengeTest.php"
@@ -872,27 +584,9 @@ count = 1
 
 [[issues]]
 file = "tests/Feature/Auth/VerificationNotificationTest.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `Tests\Feature\Auth\VerificationNotificationTest::setUp`.'
-count = 1
-
-[[issues]]
-file = "tests/Feature/Auth/VerificationNotificationTest.php"
 code = "possibly-invalid-argument"
 message = 'Possible argument type mismatch for argument #1 of `illuminate\foundation\testing\concerns\interactswithauthentication::actingas`: expected `Illuminate\Contracts\Auth\Authenticatable`, but possibly received `App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>`.'
 count = 2
-
-[[issues]]
-file = "tests/Feature/DashboardTest.php"
-code = "missing-return-type"
-message = "Function `test_authenticated_users_can_visit_the_dashboard` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/DashboardTest.php"
-code = "missing-return-type"
-message = "Function `test_guests_are_redirected_to_the_login_page` is missing a return type hint."
-count = 1
 
 [[issues]]
 file = "tests/Feature/DashboardTest.php"
@@ -904,12 +598,6 @@ count = 1
 file = "tests/Feature/ErrorPageTest.php"
 code = "non-documented-method"
 message = 'Ambiguous method call to `assertinertia` on class `Illuminate\Testing\TestResponse`.'
-count = 1
-
-[[issues]]
-file = "tests/Feature/ExampleTest.php"
-code = "missing-return-type"
-message = "Function `test_returns_a_successful_response` is missing a return type hint."
 count = 1
 
 [[issues]]
@@ -953,36 +641,6 @@ file = "tests/Feature/PostReactionTest.php"
 code = "non-documented-method"
 message = 'Ambiguous method call to `create` on class `App\Models\PostReaction`.'
 count = 3
-
-[[issues]]
-file = "tests/Feature/Settings/ProfileUpdateTest.php"
-code = "missing-return-type"
-message = "Function `test_correct_password_must_be_provided_to_delete_account` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Settings/ProfileUpdateTest.php"
-code = "missing-return-type"
-message = "Function `test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Settings/ProfileUpdateTest.php"
-code = "missing-return-type"
-message = "Function `test_profile_information_can_be_updated` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Settings/ProfileUpdateTest.php"
-code = "missing-return-type"
-message = "Function `test_profile_page_is_displayed` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Settings/ProfileUpdateTest.php"
-code = "missing-return-type"
-message = "Function `test_user_can_delete_their_account` is missing a return type hint."
-count = 1
 
 [[issues]]
 file = "tests/Feature/Settings/ProfileUpdateTest.php"
@@ -1052,42 +710,6 @@ count = 5
 
 [[issues]]
 file = "tests/Feature/Settings/SecurityTest.php"
-code = "missing-return-type"
-message = "Function `test_correct_password_must_be_provided_to_update_password` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Settings/SecurityTest.php"
-code = "missing-return-type"
-message = "Function `test_password_can_be_updated` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Settings/SecurityTest.php"
-code = "missing-return-type"
-message = "Function `test_security_page_does_not_require_password_confirmation_when_disabled` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Settings/SecurityTest.php"
-code = "missing-return-type"
-message = "Function `test_security_page_is_displayed` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Settings/SecurityTest.php"
-code = "missing-return-type"
-message = "Function `test_security_page_renders_without_two_factor_when_feature_is_disabled` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Settings/SecurityTest.php"
-code = "missing-return-type"
-message = "Function `test_security_page_requires_password_confirmation_when_enabled` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Feature/Settings/SecurityTest.php"
 code = "no-value"
 message = 'Argument #2 passed to method `illuminate\support\facades\hash::check` has type `never`, meaning it cannot produce a value.'
 count = 1
@@ -1117,12 +739,6 @@ message = 'Possible argument type mismatch for argument #1 of `illuminate\founda
 count = 6
 
 [[issues]]
-file = "tests/Feature/SpotifyTest.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `Tests\Feature\SpotifyTest::setUp`.'
-count = 1
-
-[[issues]]
 file = "tests/Feature/UsesTest.php"
 code = "non-documented-method"
 message = 'Ambiguous method call to `assertinertia` on class `Illuminate\Testing\TestResponse`.'
@@ -1136,20 +752,8 @@ count = 1
 
 [[issues]]
 file = "tests/Unit/ExampleTest.php"
-code = "missing-return-type"
-message = "Function `test_that_true_is_true` is missing a return type hint."
-count = 1
-
-[[issues]]
-file = "tests/Unit/ExampleTest.php"
 code = "non-existent-method"
 message = 'Method `assertTrue` does not exist on type `Tests\Unit\ExampleTest`.'
-count = 1
-
-[[issues]]
-file = "tests/Unit/SpotifyServiceTest.php"
-code = "missing-override-attribute"
-message = 'Missing `#[Override]` attribute on overriding method `Tests\Unit\SpotifyServiceTest::setUp`.'
 count = 1
 
 [[issues]]

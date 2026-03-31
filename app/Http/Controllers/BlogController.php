@@ -10,13 +10,15 @@ use App\Services\MarkdownRenderer;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
+use League\CommonMark\Exception\CommonMarkException;
 
 final class BlogController extends Controller
 {
     public function index(Request $request): Response
     {
         $selectedTag = $request->query('tag');
-        $search = $request->query('search');
+        $rawSearch = $request->query('search');
+        $search = is_string($rawSearch) ? $rawSearch : null;
 
         $posts = Post::query()
             ->with('tag:id,name')
@@ -49,6 +51,9 @@ final class BlogController extends Controller
         ]);
     }
 
+    /**
+     * @throws CommonMarkException
+     */
     public function show(Post $post, MarkdownRenderer $renderer): Response
     {
         $post->load('tag:id,name');

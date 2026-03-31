@@ -47,7 +47,7 @@ final class Post extends Model
 {
     use Orbital;
 
-    /** @var list<string> */
+    /** @var array<array-key, mixed> */
     protected $appends = ['formatted_published_at', 'reading_time_minutes'];
 
     public static function schema(Blueprint $table): void
@@ -109,21 +109,25 @@ final class Post extends Model
             : $query->orderByRaw('CASE WHEN published_at IS NULL THEN 1 ELSE 0 END DESC')->orderByDesc('published_at');
     }
 
+    #[\Override]
     public function getKeyName(): string
     {
         return 'storage_key';
     }
 
+    #[\Override]
     public function getRouteKeyName(): string
     {
         return 'slug';
     }
 
+    #[\Override]
     public function getIncrementing(): bool
     {
         return false;
     }
 
+    #[\Override]
     public function usesTimestamps(): bool
     {
         return false;

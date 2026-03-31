@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 final class PostReaction extends Model
 {
-    /** @var list<string> */
+    /** @var array<int, string> */
     protected $fillable = [
         'post_slug',
         'reaction',
