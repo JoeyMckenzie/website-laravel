@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
@@ -22,11 +21,12 @@ class SecurityController extends Controller implements HasMiddleware
      */
     public static function middleware(): array
     {
-        return
+        return (
             Features::canManageTwoFactorAuthentication()
             && Features::optionEnabled(Features::twoFactorAuthentication(), 'confirmPassword')
                 ? [new Middleware('password.confirm', only: ['edit'])]
-                : [];
+                : []
+        );
     }
 
     /**

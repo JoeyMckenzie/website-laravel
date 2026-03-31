@@ -14,7 +14,7 @@ final class MermaidRenderer implements NodeRendererInterface
 {
     public function render(Node $node, ChildNodeRendererInterface $childRenderer): ?HtmlElement
     {
-        if (! $node instanceof FencedCode) {
+        if (!$node instanceof FencedCode) {
             return null;
         }
 

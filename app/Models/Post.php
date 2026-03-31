@@ -67,11 +67,9 @@ final class Post extends Model
      */
     public function formattedPublishedAt(): Attribute
     {
-        return Attribute::get(
-            fn (): string => $this->published_at !== null
-                ? Date::parse($this->published_at)->format('M d, Y')
-                : Date::now()->format('M d, Y'),
-        );
+        return Attribute::get(fn(): string => $this->published_at !== null
+            ? Date::parse($this->published_at)->format('M d, Y')
+            : Date::now()->format('M d, Y'));
     }
 
     /**
@@ -79,9 +77,7 @@ final class Post extends Model
      */
     public function readingTimeMinutes(): Attribute
     {
-        return Attribute::get(
-            fn (): int => (int) max(1, ceil(str_word_count(strip_tags($this->content ?? '')) / 200)),
-        );
+        return Attribute::get(fn(): int => (int) max(1, ceil(str_word_count(strip_tags($this->content ?? '')) / 200)));
     }
 
     /**
@@ -110,8 +106,7 @@ final class Post extends Model
     {
         return app()->isProduction()
             ? $query->latest('published_at')
-            : $query->orderByRaw('CASE WHEN published_at IS NULL THEN 1 ELSE 0 END DESC')
-                ->orderByDesc('published_at');
+            : $query->orderByRaw('CASE WHEN published_at IS NULL THEN 1 ELSE 0 END DESC')->orderByDesc('published_at');
     }
 
     public function getKeyName(): string

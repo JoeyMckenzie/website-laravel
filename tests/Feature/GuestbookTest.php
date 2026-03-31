@@ -25,10 +25,10 @@ class GuestbookTest extends TestCase
         $response = $this->get(route('guestbook'));
 
         $response->assertInertia(
-            fn (AssertableInertia $page) => $page
-                ->component('guestbook')
-                ->has('entries')
-                ->where('githubUser', null)
+            static fn(AssertableInertia $page) => $page->component('guestbook')->has('entries')->where(
+                'githubUser',
+                null,
+            ),
         );
     }
 
@@ -43,9 +43,7 @@ class GuestbookTest extends TestCase
         $response = $this->get(route('guestbook'));
 
         $response->assertInertia(
-            fn (AssertableInertia $page) => $page
-                ->component('guestbook')
-                ->has('entries', 1)
+            static fn(AssertableInertia $page) => $page->component('guestbook')->has('entries', 1),
         );
     }
 
@@ -140,9 +138,10 @@ class GuestbookTest extends TestCase
         ])->get(route('guestbook'));
 
         $response->assertInertia(
-            fn (AssertableInertia $page) => $page
-                ->component('guestbook')
-                ->where('githubUser.username', 'testuser')
+            static fn(AssertableInertia $page) => $page->component('guestbook')->where(
+                'githubUser.username',
+                'testuser',
+            ),
         );
     }
 }

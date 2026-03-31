@@ -13,11 +13,8 @@ class ErrorPageTest extends TestCase
     {
         $response = $this->get('/nonexistent-route-that-does-not-exist');
 
-        $response->assertStatus(404)
-            ->assertInertia(
-                fn (AssertableInertia $page) => $page
-                    ->component('error')
-                    ->where('status', 404)
-            );
+        $response
+            ->assertStatus(404)
+            ->assertInertia(static fn(AssertableInertia $page) => $page->component('error')->where('status', 404));
     }
 }

@@ -17,29 +17,29 @@ final class FeedController extends Controller
             ->latest('published_at')
             ->get(['slug', 'title', 'description', 'image', 'published_at', 'tag_id', 'storage_key']);
 
-        $items = $posts->map(fn (Post $post): string => <<<XML
-            <item>
-                <title><![CDATA[{$post->title}]]></title>
-                <link>{$this->postUrl($post)}</link>
-                <description><![CDATA[{$post->description}]]></description>
-                <pubDate>{$this->formatRssDate($post->published_at)}</pubDate>
-                <guid>{$this->postUrl($post)}</guid>
-                <enclosure url="{$this->imageUrl($post)}" type="image/jpeg" />
-            </item>
-        XML)->join("\n");
+        $items = $posts->map(fn(Post $post): string => <<<XML
+                <item>
+                    <title><![CDATA[{$post->title}]]></title>
+                    <link>{$this->postUrl($post)}</link>
+                    <description><![CDATA[{$post->description}]]></description>
+                    <pubDate>{$this->formatRssDate($post->published_at)}</pubDate>
+                    <guid>{$this->postUrl($post)}</guid>
+                    <enclosure url="{$this->imageUrl($post)}" type="image/jpeg" />
+                </item>
+            XML)->join("\n");
 
         $xml = <<<XML
-        <?xml version="1.0" encoding="UTF-8"?>
-        <rss version="2.0">
-            <channel>
-                <title>Joey McKenzie's Blog</title>
-                <link>{$this->siteUrl()}</link>
-                <description>Thoughts on software development, Laravel, PHP, Rust, and more.</description>
-                <language>en-us</language>
-                {$items}
-            </channel>
-        </rss>
-        XML;
+            <?xml version="1.0" encoding="UTF-8"?>
+            <rss version="2.0">
+                <channel>
+                    <title>Joey McKenzie's Blog</title>
+                    <link>{$this->siteUrl()}</link>
+                    <description>Thoughts on software development, Laravel, PHP, Rust, and more.</description>
+                    <language>en-us</language>
+                    {$items}
+                </channel>
+            </rss>
+            XML;
 
         return response($xml, 200, [
             'Content-Type' => 'application/rss+xml; charset=UTF-8',
@@ -63,8 +63,6 @@ final class FeedController extends Controller
 
     private function formatRssDate(?string $date): string
     {
-        return $date !== null
-            ? date('r', strtotime($date))
-            : date('r');
+        return $date !== null ? date('r', strtotime($date)) : date('r');
     }
 }

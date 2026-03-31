@@ -13,7 +13,7 @@ final class SpotifyController extends Controller
 {
     public function __invoke(SpotifyService $spotify): JsonResponse
     {
-        $nowPlaying = Cache::remember('spotify:now_playing', 30, fn () => $spotify->nowPlaying());
+        $nowPlaying = Cache::remember('spotify:now_playing', 30, $spotify->nowPlaying(...));
 
         return response()->json([
             'nowPlaying' => $nowPlaying,

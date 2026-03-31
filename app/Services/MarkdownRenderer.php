@@ -22,7 +22,7 @@ final class MarkdownRenderer
     {
         /** @var string $parsedContent */
         return app()->isProduction()
-            ? Cache::rememberForever($slug, fn () => $this->convert($content))
+            ? Cache::rememberForever($slug, fn() => $this->convert($content))
             : $this->convert($content);
     }
 
@@ -31,10 +31,10 @@ final class MarkdownRenderer
      */
     private function convert(string $content): string
     {
-        $environment = new Environment;
-        $environment->addExtension(new CommonMarkCoreExtension);
+        $environment = new Environment();
+        $environment->addExtension(new CommonMarkCoreExtension());
         $environment->addExtension(new PhikiExtension(Theme::TokyoNight));
-        $environment->addExtension(new MermaidExtension);
+        $environment->addExtension(new MermaidExtension());
 
         $converter = new MarkdownConverter($environment);
 

@@ -12,6 +12,6 @@ final class MermaidExtension implements ExtensionInterface
 {
     public function register(EnvironmentBuilderInterface $environment): void
     {
-        $environment->addRenderer(FencedCode::class, new MermaidRenderer, priority: 100);
+        $environment->addRenderer(FencedCode::class, new MermaidRenderer(), priority: 100);
     }
 }

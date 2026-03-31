@@ -23,21 +23,16 @@ class HomeTest extends TestCase
     {
         $response = $this->get(route('home'));
 
-        $response->assertInertia(
-            fn (AssertableInertia $page) => $page
-                ->component('home')
-                ->has('recentPosts')
-        );
+        $response->assertInertia(static fn(AssertableInertia $page) => $page->component('home')->has('recentPosts'));
     }
 
     public function test_home_page_has_recent_posts(): void
     {
         $response = $this->get(route('home'));
 
-        $response->assertInertia(
-            fn (AssertableInertia $page) => $page
-                ->component('home')
-                ->where('recentPosts', fn ($posts) => count($posts) <= 3)
-        );
+        $response->assertInertia(static fn(AssertableInertia $page) => $page->component('home')->where(
+            'recentPosts',
+            static fn($posts) => count($posts) <= 3,
+        ));
     }
 }

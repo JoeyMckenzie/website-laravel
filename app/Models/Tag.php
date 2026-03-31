@@ -89,8 +89,6 @@ final class Tag extends Model
      */
     public function hashTagged(): Attribute
     {
-        return Attribute::get(
-            fn (): string => "#{$this->name}"
-        );
+        return Attribute::get(fn(): string => "#{$this->name}");
     }
 }

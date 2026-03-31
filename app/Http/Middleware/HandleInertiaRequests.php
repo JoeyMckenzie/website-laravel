@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
@@ -44,7 +43,7 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
-            'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
+            'sidebarOpen' => !$request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
         ];
     }
 }

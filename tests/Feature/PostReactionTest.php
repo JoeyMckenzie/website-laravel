@@ -22,8 +22,7 @@ class PostReactionTest extends TestCase
 
         $response = $this->getJson(route('api.posts.reactions.index', 'test-post'));
 
-        $response->assertOk()
-            ->assertJsonPath('counts.fire', 1);
+        $response->assertOk()->assertJsonPath('counts.fire', 1);
     }
 
     public function test_can_add_reaction(): void
@@ -32,8 +31,7 @@ class PostReactionTest extends TestCase
             'reaction' => 'fire',
         ]);
 
-        $response->assertOk()
-            ->assertJsonPath('toggled', 'added');
+        $response->assertOk()->assertJsonPath('toggled', 'added');
 
         $this->assertDatabaseHas('post_reactions', [
             'post_slug' => 'test-post',
@@ -55,8 +53,7 @@ class PostReactionTest extends TestCase
             'reaction' => 'fire',
         ]);
 
-        $response->assertOk()
-            ->assertJsonPath('toggled', 'removed');
+        $response->assertOk()->assertJsonPath('toggled', 'removed');
 
         $this->assertDatabaseMissing('post_reactions', [
             'post_slug' => 'test-post',
@@ -86,7 +83,6 @@ class PostReactionTest extends TestCase
 
         $response = $this->getJson(route('api.posts.reactions.index', 'test-post'));
 
-        $response->assertOk()
-            ->assertJsonPath('userReactions.0', 'heart');
+        $response->assertOk()->assertJsonPath('userReactions.0', 'heart');
     }
 }

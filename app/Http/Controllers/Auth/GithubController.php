@@ -13,9 +13,7 @@ final class GithubController extends Controller
 {
     public function redirect(): SymfonyRedirectResponse
     {
-        return Socialite::driver('github')
-            ->scopes(['read:user'])
-            ->redirect();
+        return Socialite::driver('github')->scopes(['read:user'])->redirect();
     }
 
     public function callback(): RedirectResponse

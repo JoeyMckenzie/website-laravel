@@ -50,7 +50,8 @@ class SpotifyTest extends TestCase
 
         $response = $this->getJson(route('api.spotify.now-playing'));
 
-        $response->assertOk()
+        $response
+            ->assertOk()
             ->assertJsonStructure([
                 'nowPlaying' => [
                     'title',
@@ -76,7 +77,6 @@ class SpotifyTest extends TestCase
 
         $response = $this->getJson(route('api.spotify.now-playing'));
 
-        $response->assertOk()
-            ->assertJsonPath('nowPlaying', null);
+        $response->assertOk()->assertJsonPath('nowPlaying', null);
     }
 }

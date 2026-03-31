@@ -13,9 +13,9 @@ final class HomeController extends Controller
 {
     public function __invoke(): Response
     {
-        $resolver = static fn () => Post::query()
+        $resolver = static fn() => Post::query()
             ->with('tag:id,name')
-            ->when(app()->isProduction(), static fn ($query) => $query->published())
+            ->when(app()->isProduction(), static fn($query) => $query->published())
             ->latestPublished()
             ->limit(3)
             ->get([

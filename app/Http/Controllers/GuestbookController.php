@@ -14,9 +14,7 @@ final class GuestbookController extends Controller
 {
     public function index(Request $request): Response
     {
-        $entries = GuestbookEntry::query()
-            ->latest()
-            ->get();
+        $entries = GuestbookEntry::query()->latest()->get();
 
         return Inertia::render('guestbook', [
             'entries' => $entries,
@@ -33,7 +31,7 @@ final class GuestbookController extends Controller
     {
         $username = $request->session()->get('github_username');
 
-        if (! $username) {
+        if (!$username) {
             return redirect()->route('guestbook');
         }
 

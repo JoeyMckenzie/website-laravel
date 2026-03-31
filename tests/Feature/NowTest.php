@@ -23,8 +23,6 @@ class NowTest extends TestCase
     {
         $response = $this->get(route('now'));
 
-        $response->assertInertia(
-            fn (AssertableInertia $page) => $page->component('now')
-        );
+        $response->assertInertia(static fn(AssertableInertia $page) => $page->component('now'));
     }
 }
