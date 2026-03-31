@@ -3,7 +3,7 @@ import { index } from '@/actions/App/Http/Controllers/BlogController';
 import { SpotifyNowPlaying } from '@/components/spotify-now-playing';
 import { guestbook, home, now, uses } from '@/routes';
 import { LaravelLogo } from '@/components/laravel-icon';
-import { InteractiveGridPattern } from '@/components/ui/interactive-grid-pattern';
+import { AnimatedGridPattern } from '@/components/ui/animated-grid-pattern';
 import { cn } from '@/lib/utils';
 
 export default function BlogLayout({
@@ -13,15 +13,17 @@ export default function BlogLayout({
 }) {
     return (
         <div className="relative flex min-h-svh flex-col overflow-hidden bg-background">
-            <InteractiveGridPattern
+            <AnimatedGridPattern
                 className={cn(
                     'absolute inset-0 h-full w-full',
-                    'mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,white,transparent)]',
+                    '[mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,white,transparent)]',
                 )}
                 width={40}
                 height={40}
-                squares={[40, 40]}
-                squaresClassName="stroke-muted-foreground/[0.1]"
+                numSquares={40}
+                maxOpacity={0.25}
+                duration={3}
+                repeatDelay={0.5}
             />
             <header className="relative z-10 border-b border-border bg-background/80 backdrop-blur-sm">
                 <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
