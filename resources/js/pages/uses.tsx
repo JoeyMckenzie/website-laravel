@@ -53,10 +53,7 @@ export default function Uses() {
             </div>
 
             {sections.map((section) => (
-                <section
-                    key={section.title}
-                    className="mt-8 space-y-3 border-t pt-6"
-                >
+                <section key={section.title} className="mt-8 space-y-3 pt-6">
                     <h2 className="text-2xl tracking-tight">{section.title}</h2>
                     <ul className="space-y-3">
                         {section.items.map((item) => (

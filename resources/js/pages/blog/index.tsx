@@ -57,21 +57,10 @@ export default function BlogIndex({
                     placeholder="Search posts..."
                     defaultValue={search ?? ''}
                     onChange={(e) => handleSearch(e.target.value)}
-                    className="w-full rounded-lg border border-border bg-background px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    className="w-full rounded-lg border border-border bg-background px-4 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
                 />
 
                 <div className="flex flex-wrap gap-2">
-                    <Link
-                        href={index.url()}
-                        preserveScroll
-                        className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
-                            !selectedTag
-                                ? 'bg-foreground text-background'
-                                : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-                        }`}
-                    >
-                        All
-                    </Link>
                     {tags.map((tag) => (
                         <Link
                             key={tag.id}

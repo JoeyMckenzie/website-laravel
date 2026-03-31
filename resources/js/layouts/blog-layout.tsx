@@ -3,7 +3,8 @@ import { index } from '@/actions/App/Http/Controllers/BlogController';
 import { SpotifyNowPlaying } from '@/components/spotify-now-playing';
 import { guestbook, home, now, uses } from '@/routes';
 import { LaravelLogo } from '@/components/laravel-icon';
-import { FlickeringGrid } from '@/components/ui/flickering-grid';
+import { InteractiveGridPattern } from '@/components/ui/interactive-grid-pattern';
+import { cn } from '@/lib/utils';
 
 export default function BlogLayout({
     children,
@@ -12,13 +13,15 @@ export default function BlogLayout({
 }) {
     return (
         <div className="relative flex min-h-svh flex-col overflow-hidden bg-background">
-            <FlickeringGrid
-                className="absolute inset-0 z-0 size-full"
-                squareSize={3}
-                gridGap={8}
-                color="#6B7280"
-                maxOpacity={0.07}
-                flickerChance={0.05}
+            <InteractiveGridPattern
+                className={cn(
+                    'absolute inset-0 h-full w-full',
+                    'mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,white,transparent)]',
+                )}
+                width={40}
+                height={40}
+                squares={[40, 40]}
+                squaresClassName="stroke-muted-foreground/[0.1]"
             />
             <header className="relative z-10 border-b border-border bg-background/80 backdrop-blur-sm">
                 <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
@@ -29,6 +32,12 @@ export default function BlogLayout({
                         jm.
                     </Link>
                     <nav className="flex items-center gap-6 text-sm">
+                        <Link
+                            href={home()}
+                            className="text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            /home
+                        </Link>
                         <Link
                             href={now()}
                             className="text-muted-foreground transition-colors hover:text-foreground"
@@ -59,7 +68,7 @@ export default function BlogLayout({
             <main className="relative z-10 mx-auto w-full max-w-3xl grow px-6 py-10">
                 {children}
             </main>
-            <footer className="relative z-10 border-t border-border bg-background/80 backdrop-blur-sm">
+            <footer className="relative z-10 bg-background/80 backdrop-blur-sm">
                 <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
                     <SpotifyNowPlaying />
                     <a

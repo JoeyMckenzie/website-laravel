@@ -17,13 +17,13 @@ export default function Home({ recentPosts }: { recentPosts: PostSummary[] }) {
                 <h1 className="text-3xl font-bold tracking-tight">
                     Hi, I'm Joey.
                 </h1>
-                <p className="text-muted-foreground leading-7">
+                <p className="leading-7 text-muted-foreground">
                     Developer. Product engineer. Dad. PHP enjoyer. Building
                     things with Laravel and giving unsolicited advice on tech.
                 </p>
             </div>
 
-            <section className="mt-10 space-y-4 border-t pt-6">
+            <section className="mt-10 space-y-4 pt-6">
                 <div className="flex items-center justify-between gap-4">
                     <h2 className="text-2xl tracking-tight">Recent Posts</h2>
                     <Link

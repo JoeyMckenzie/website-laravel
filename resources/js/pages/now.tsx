@@ -18,9 +18,9 @@ export default function Now() {
                 </p>
             </div>
 
-            <section className="mt-10 space-y-3 border-t pt-6">
+            <section className="mt-10 space-y-3 pt-6">
                 <h2 className="text-2xl tracking-tight">Work</h2>
-                <p className="text-muted-foreground leading-7">
+                <p className="leading-7 text-muted-foreground">
                     I'm currently a Senior Developer at{' '}
                     <a
                         href="https://www.givebutter.com/"
@@ -34,7 +34,7 @@ export default function Now() {
                     Our goal is to make the world a better place and empower the
                     changemaker in all of us.
                 </p>
-                <p className="text-muted-foreground leading-7">
+                <p className="leading-7 text-muted-foreground">
                     I work on a lot of things, mainly Laravel and React. I love
                     my job and the people I get to work with. I love working
                     with PHP and TypeScript, and do a lot to build our community
@@ -44,7 +44,7 @@ export default function Now() {
 
             <section className="mt-8 space-y-3 border-t pt-6">
                 <h2 className="text-2xl tracking-tight">Online</h2>
-                <p className="text-muted-foreground leading-7">
+                <p className="leading-7 text-muted-foreground">
                     In my spare time, I write a lot of PHP and enjoy tinkering
                     on ideas with Laravel. I've got quite a few fun projects
                     I've worked on that usually make their way over to the blog.
@@ -63,7 +63,7 @@ export default function Now() {
 
             <section className="mt-8 space-y-3 border-t pt-6">
                 <h2 className="text-2xl tracking-tight">Offline</h2>
-                <p className="text-muted-foreground leading-7">
+                <p className="leading-7 text-muted-foreground">
                     If I'm not sitting in front of a terminal, I'm chasing
                     around my two-year old and spending time with my family. I
                     enjoy fishing, grabbing a drink at my local watering hole
