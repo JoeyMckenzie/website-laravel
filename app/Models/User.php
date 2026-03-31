@@ -29,6 +29,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+            // @mago-expect lint:no-literal-password
             'password' => 'hashed',
             'two_factor_confirmed_at' => 'datetime',
         ];

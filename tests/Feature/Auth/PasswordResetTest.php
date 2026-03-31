@@ -69,6 +69,7 @@ class PasswordResetTest extends TestCase
             $response = $this->post(route('password.update'), [
                 'token' => $notification->token,
                 'email' => $user->email,
+                // @mago-expect lint:no-literal-password
                 'password' => 'password',
                 'password_confirmation' => 'password',
             ]);
@@ -84,8 +85,10 @@ class PasswordResetTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->post(route('password.update'), [
+            // @mago-expect lint:no-literal-password
             'token' => 'invalid-token',
             'email' => $user->email,
+            // @mago-expect lint:no-literal-password
             'password' => 'newpassword123',
             'password_confirmation' => 'newpassword123',
         ]);

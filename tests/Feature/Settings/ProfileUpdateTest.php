@@ -58,6 +58,7 @@ class ProfileUpdateTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->delete(route('profile.destroy'), [
+            // @mago-expect lint:no-literal-password
             'password' => 'password',
         ]);
 
@@ -72,6 +73,7 @@ class ProfileUpdateTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->from(route('profile.edit'))->delete(route('profile.destroy'), [
+            // @mago-expect lint:no-literal-password
             'password' => 'wrong-password',
         ]);
 

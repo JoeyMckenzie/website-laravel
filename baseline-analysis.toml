@@ -79,6 +79,204 @@ message = '''Invalid return type for function `app\concerns\profilevalidationrul
 count = 1
 
 [[issues]]
+file = "app/Data/NowPlayingData.php"
+code = "possibly-undefined-array-index"
+message = "Possibly undefined array key `int(0)` accessed on `array<int, array{'name': string}>`."
+count = 1
+
+[[issues]]
+file = "app/Data/NowPlayingData.php"
+code = "possibly-undefined-array-index"
+message = "Possibly undefined array key `int(0)` accessed on `array<int, array{'url': string}>`."
+count = 2
+
+[[issues]]
+file = "app/Data/NowPlayingData.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `RuntimeException` in `App\Data\NowPlayingData::fromSpotifyResponse`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Api/PostReactionController.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `create` on class `App\Models\PostReaction`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Api/PostReactionController.php"
+code = "possibly-undefined-array-index"
+message = "Possibly undefined array key `string('reaction')` accessed on `array<array-key, mixed>`."
+count = 2
+
+[[issues]]
+file = "app/Http/Controllers/Api/PostReactionController.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `LogicException` in `App\Http\Controllers\Api\PostReactionController::store`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Api/SpotifyController.php"
+code = "mixed-assignment"
+message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Auth/GithubController.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Auth/GithubController.php"
+code = "mixed-return-statement"
+message = 'Could not infer a precise return type for function `app\http\controllers\auth\githubcontroller::redirect`. Saw type `mixed`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Auth/GithubController.php"
+code = "non-existent-method"
+message = 'Method `scopes` does not exist on type `Laravel\Socialite\Contracts\Provider`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/BlogController.php"
+code = "array-to-string-conversion"
+message = "Potentially casting `array` to `string`."
+count = 2
+
+[[issues]]
+file = "app/Http/Controllers/BlogController.php"
+code = "mixed-assignment"
+message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/BlogController.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 9
+
+[[issues]]
+file = "app/Http/Controllers/BlogController.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `published` on class `Illuminate\Database\Eloquent\Builder`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/BlogController.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `League\CommonMark\Exception\CommonMarkException` in `App\Http\Controllers\BlogController::show`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/FeedController.php"
+code = "mixed-assignment"
+message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
+count = 2
+
+[[issues]]
+file = "app/Http/Controllers/FeedController.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 4
+
+[[issues]]
+file = "app/Http/Controllers/FeedController.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `published` on class `Illuminate\Database\Eloquent\Builder`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/FeedController.php"
+code = "possibly-false-argument"
+message = "Argument #2 of function `date` is possibly `false`, but parameter type `int|null` does not accept it."
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/GuestbookController.php"
+code = "mixed-assignment"
+message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
+count = 2
+
+[[issues]]
+file = "app/Http/Controllers/GuestbookController.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `create` on class `App\Models\GuestbookEntry`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/GuestbookController.php"
+code = "non-documented-property"
+message = 'Ambiguous property access: $github_username on class `App\Models\GuestbookEntry`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/GuestbookController.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `Illuminate\Http\Exceptions\HttpResponseException` in `App\Http\Controllers\GuestbookController::destroy`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/GuestbookController.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `LogicException` in `App\Http\Controllers\GuestbookController::destroy`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/GuestbookController.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `RuntimeException` in `App\Http\Controllers\GuestbookController::destroy`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/GuestbookController.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `RuntimeException` in `App\Http\Controllers\GuestbookController::index`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/GuestbookController.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `RuntimeException` in `App\Http\Controllers\GuestbookController::store`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/GuestbookController.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `Symfony\Component\HttpKernel\Exception\HttpException` in `App\Http\Controllers\GuestbookController::destroy`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/GuestbookController.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `Symfony\Component\HttpKernel\Exception\NotFoundHttpException` in `App\Http\Controllers\GuestbookController::destroy`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/HomeController.php"
+code = "mixed-assignment"
+message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/HomeController.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 5
+
+[[issues]]
+file = "app/Http/Controllers/HomeController.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `published` on class `Illuminate\Database\Eloquent\Builder`.'
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Settings/ProfileController.php"
+code = "mixed-argument"
+message = 'Invalid argument type for argument #1 of `illuminate\database\eloquent\model::fill`: expected `array<string, mixed>`, but found `mixed`.'
+count = 1
+
+[[issues]]
 file = "app/Http/Controllers/Settings/ProfileController.php"
 code = "mixed-assignment"
 message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
@@ -88,12 +286,18 @@ count = 1
 file = "app/Http/Controllers/Settings/ProfileController.php"
 code = "mixed-method-access"
 message = "Attempting to access a method on a non-object type (`mixed`)."
-count = 4
+count = 3
 
 [[issues]]
 file = "app/Http/Controllers/Settings/ProfileController.php"
 code = "mixed-property-access"
 message = "Attempting to access a property on a non-object type (`mixed`)."
+count = 1
+
+[[issues]]
+file = "app/Http/Controllers/Settings/ProfileController.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `Illuminate\Database\Eloquent\MassAssignmentException` in `App\Http\Controllers\Settings\ProfileController::update`.'
 count = 1
 
 [[issues]]
@@ -151,6 +355,102 @@ message = "Attempting to access a property on a non-object type (`mixed`)."
 count = 1
 
 [[issues]]
+file = "app/Models/GuestbookEntry.php"
+code = "incompatible-property-type"
+message = 'Property `App\Models\GuestbookEntry::$fillable` has an incompatible type declaration from docblock.'
+count = 1
+
+[[issues]]
+file = "app/Models/Post.php"
+code = "incompatible-property-type"
+message = 'Property `App\Models\Post::$appends` has an incompatible type declaration from docblock.'
+count = 1
+
+[[issues]]
+file = "app/Models/Post.php"
+code = "invalid-return-tag"
+message = "Failed to resolve `@return` type string."
+count = 1
+
+[[issues]]
+file = "app/Models/Post.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Models\Post::getIncrementing`.'
+count = 1
+
+[[issues]]
+file = "app/Models/Post.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Models\Post::getKeyName`.'
+count = 1
+
+[[issues]]
+file = "app/Models/Post.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Models\Post::getRouteKeyName`.'
+count = 1
+
+[[issues]]
+file = "app/Models/Post.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Models\Post::usesTimestamps`.'
+count = 1
+
+[[issues]]
+file = "app/Models/Post.php"
+code = "mixed-method-access"
+message = "Attempting to access a method on a non-object type (`mixed`)."
+count = 2
+
+[[issues]]
+file = "app/Models/Post.php"
+code = "mixed-return-statement"
+message = "Could not infer a precise return type for function `2451940604892265016:2248`. Saw type `mixed`."
+count = 1
+
+[[issues]]
+file = "app/Models/Post.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `now` on class `Illuminate\Support\Facades\Date`.'
+count = 1
+
+[[issues]]
+file = "app/Models/Post.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `parse` on class `Illuminate\Support\Facades\Date`.'
+count = 1
+
+[[issues]]
+file = "app/Models/Post.php"
+code = "redundant-null-coalesce"
+message = "Redundant null coalesce: left-hand side can never be `null` or undefined."
+count = 1
+
+[[issues]]
+file = "app/Models/PostReaction.php"
+code = "incompatible-property-type"
+message = 'Property `App\Models\PostReaction::$fillable` has an incompatible type declaration from docblock.'
+count = 1
+
+[[issues]]
+file = "app/Models/Tag.php"
+code = "incompatible-property-type"
+message = 'Property `App\Models\Tag::$appends` has an incompatible type declaration from docblock.'
+count = 1
+
+[[issues]]
+file = "app/Models/Tag.php"
+code = "invalid-return-tag"
+message = "Failed to resolve `@return` type string."
+count = 1
+
+[[issues]]
+file = "app/Models/Tag.php"
+code = "unused-property"
+message = "Property `$rows` is never used."
+count = 1
+
+[[issues]]
 file = "app/Models/User.php"
 code = "missing-override-attribute"
 message = 'Missing `#[Override]` attribute on overriding method `App\Models\User::casts`.'
@@ -197,6 +497,66 @@ file = "app/Providers/FortifyServiceProvider.php"
 code = "possibly-null-operand"
 message = "Possibly null right operand used in string concatenation (type `null|string`)."
 count = 1
+
+[[issues]]
+file = "app/Services/CommonMark/MermaidExtension.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Services\CommonMark\MermaidExtension::register`.'
+count = 1
+
+[[issues]]
+file = "app/Services/CommonMark/MermaidExtension.php"
+code = "unhandled-thrown-type"
+message = 'Potentially unhandled exception `League\CommonMark\Exception\AlreadyInitializedException` in `App\Services\CommonMark\MermaidExtension::register`.'
+count = 1
+
+[[issues]]
+file = "app/Services/CommonMark/MermaidRenderer.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `App\Services\CommonMark\MermaidRenderer::render`.'
+count = 1
+
+[[issues]]
+file = "app/Services/MarkdownRenderer.php"
+code = "mixed-return-statement"
+message = 'Could not infer a precise return type for function `app\services\markdownrenderer::render`. Saw type `mixed`.'
+count = 1
+
+[[issues]]
+file = "app/Services/SpotifyService.php"
+code = "mixed-argument"
+message = '''Invalid argument type for argument #1 of `app\data\nowplayingdata::fromspotifyresponse`: expected `array{'currently_playing_type': string, 'item': array{'album': array{'images': array<int, array{'url': string}>}|null, 'artists': array<int, array{'name': string}>|null, 'external_urls': array{'spotify': null|string}, 'name': string, 'show': array{'images': array<int, array{'url': string}>, 'name': string}|null}}`, but found `mixed`.'''
+count = 1
+
+[[issues]]
+file = "app/Services/SpotifyService.php"
+code = "mixed-return-statement"
+message = "Could not infer a precise return type for function `12450875220840123513:1110`. Saw type `mixed`."
+count = 1
+
+[[issues]]
+file = "app/Services/SpotifyService.php"
+code = "mixed-return-statement"
+message = 'Could not infer a precise return type for function `app\services\spotifyservice::getaccesstoken`. Saw type `mixed`.'
+count = 1
+
+[[issues]]
+file = "app/Services/SpotifyService.php"
+code = "non-existent-method"
+message = 'Method `failed` does not exist on type `GuzzleHttp\Promise\PromiseInterface`.'
+count = 1
+
+[[issues]]
+file = "app/Services/SpotifyService.php"
+code = "non-existent-method"
+message = 'Method `json` does not exist on type `GuzzleHttp\Promise\PromiseInterface`.'
+count = 2
+
+[[issues]]
+file = "app/Services/SpotifyService.php"
+code = "non-existent-method"
+message = 'Method `status` does not exist on type `GuzzleHttp\Promise\PromiseInterface`.'
+count = 2
 
 [[issues]]
 file = "database/factories/UserFactory.php"
@@ -363,13 +723,13 @@ count = 3
 [[issues]]
 file = "tests/Feature/Auth/EmailVerificationTest.php"
 code = "non-existent-method"
-message = 'Method `assertfalse` does not exist on type `Tests\Feature\Auth\EmailVerificationTest`.'
+message = 'Method `assertFalse` does not exist on type `Tests\Feature\Auth\EmailVerificationTest`.'
 count = 2
 
 [[issues]]
 file = "tests/Feature/Auth/EmailVerificationTest.php"
 code = "non-existent-method"
-message = 'Method `asserttrue` does not exist on type `Tests\Feature\Auth\EmailVerificationTest`.'
+message = 'Method `assertTrue` does not exist on type `Tests\Feature\Auth\EmailVerificationTest`.'
 count = 2
 
 [[issues]]
@@ -541,10 +901,58 @@ message = 'Possible argument type mismatch for argument #1 of `illuminate\founda
 count = 1
 
 [[issues]]
+file = "tests/Feature/ErrorPageTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `assertinertia` on class `Illuminate\Testing\TestResponse`.'
+count = 1
+
+[[issues]]
 file = "tests/Feature/ExampleTest.php"
 code = "missing-return-type"
 message = "Function `test_returns_a_successful_response` is missing a return type hint."
 count = 1
+
+[[issues]]
+file = "tests/Feature/GuestbookTest.php"
+code = "mixed-assignment"
+message = "Assigning `mixed` type to a variable may lead to unexpected behavior."
+count = 2
+
+[[issues]]
+file = "tests/Feature/GuestbookTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `assertinertia` on class `Illuminate\Testing\TestResponse`.'
+count = 3
+
+[[issues]]
+file = "tests/Feature/GuestbookTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `create` on class `App\Models\GuestbookEntry`.'
+count = 3
+
+[[issues]]
+file = "tests/Feature/HomeTest.php"
+code = "mixed-argument"
+message = "Invalid argument type for argument #1 of `count`: expected `Countable|array<array-key, mixed>`, but found `mixed`."
+count = 1
+
+[[issues]]
+file = "tests/Feature/HomeTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `assertinertia` on class `Illuminate\Testing\TestResponse`.'
+count = 2
+
+[[issues]]
+file = "tests/Feature/NowTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `assertinertia` on class `Illuminate\Testing\TestResponse`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/PostReactionTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `create` on class `App\Models\PostReaction`.'
+count = 3
 
 [[issues]]
 file = "tests/Feature/Settings/ProfileUpdateTest.php"
@@ -621,19 +1029,19 @@ count = 1
 [[issues]]
 file = "tests/Feature/Settings/ProfileUpdateTest.php"
 code = "non-existent-method"
-message = 'Method `assertnotnull` does not exist on type `Tests\Feature\Settings\ProfileUpdateTest`.'
+message = 'Method `assertNotNull` does not exist on type `Tests\Feature\Settings\ProfileUpdateTest`.'
 count = 2
 
 [[issues]]
 file = "tests/Feature/Settings/ProfileUpdateTest.php"
 code = "non-existent-method"
-message = 'Method `assertnull` does not exist on type `Tests\Feature\Settings\ProfileUpdateTest`.'
+message = 'Method `assertNull` does not exist on type `Tests\Feature\Settings\ProfileUpdateTest`.'
 count = 2
 
 [[issues]]
 file = "tests/Feature/Settings/ProfileUpdateTest.php"
 code = "non-existent-method"
-message = 'Method `assertsame` does not exist on type `Tests\Feature\Settings\ProfileUpdateTest`.'
+message = 'Method `assertSame` does not exist on type `Tests\Feature\Settings\ProfileUpdateTest`.'
 count = 2
 
 [[issues]]
@@ -699,7 +1107,7 @@ count = 1
 [[issues]]
 file = "tests/Feature/Settings/SecurityTest.php"
 code = "non-existent-method"
-message = 'Method `asserttrue` does not exist on type `Tests\Feature\Settings\SecurityTest`.'
+message = 'Method `assertTrue` does not exist on type `Tests\Feature\Settings\SecurityTest`.'
 count = 1
 
 [[issues]]
@@ -707,6 +1115,18 @@ file = "tests/Feature/Settings/SecurityTest.php"
 code = "possibly-invalid-argument"
 message = 'Possible argument type mismatch for argument #1 of `illuminate\foundation\testing\concerns\interactswithauthentication::actingas`: expected `Illuminate\Contracts\Auth\Authenticatable`, but possibly received `App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>`.'
 count = 6
+
+[[issues]]
+file = "tests/Feature/SpotifyTest.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `Tests\Feature\SpotifyTest::setUp`.'
+count = 1
+
+[[issues]]
+file = "tests/Feature/UsesTest.php"
+code = "non-documented-method"
+message = 'Ambiguous method call to `assertinertia` on class `Illuminate\Testing\TestResponse`.'
+count = 1
 
 [[issues]]
 file = "tests/TestCase.php"
@@ -723,5 +1143,35 @@ count = 1
 [[issues]]
 file = "tests/Unit/ExampleTest.php"
 code = "non-existent-method"
-message = 'Method `asserttrue` does not exist on type `Tests\Unit\ExampleTest`.'
+message = 'Method `assertTrue` does not exist on type `Tests\Unit\ExampleTest`.'
 count = 1
+
+[[issues]]
+file = "tests/Unit/SpotifyServiceTest.php"
+code = "missing-override-attribute"
+message = 'Missing `#[Override]` attribute on overriding method `Tests\Unit\SpotifyServiceTest::setUp`.'
+count = 1
+
+[[issues]]
+file = "tests/Unit/SpotifyServiceTest.php"
+code = "non-existent-method"
+message = 'Method `assertNotNull` does not exist on type `Tests\Unit\SpotifyServiceTest`.'
+count = 2
+
+[[issues]]
+file = "tests/Unit/SpotifyServiceTest.php"
+code = "non-existent-method"
+message = 'Method `assertNull` does not exist on type `Tests\Unit\SpotifyServiceTest`.'
+count = 2
+
+[[issues]]
+file = "tests/Unit/SpotifyServiceTest.php"
+code = "non-existent-method"
+message = 'Method `assertSame` does not exist on type `Tests\Unit\SpotifyServiceTest`.'
+count = 7
+
+[[issues]]
+file = "tests/Unit/SpotifyServiceTest.php"
+code = "possibly-null-property-access"
+message = "Attempting to access a property on a possibly `null` value."
+count = 7

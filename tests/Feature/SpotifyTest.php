@@ -21,7 +21,9 @@ class SpotifyTest extends TestCase
 
         config([
             'services.spotify.client_id' => 'test-client-id',
+            // @mago-expect lint:no-literal-password
             'services.spotify.client_secret' => 'test-client-secret',
+            // @mago-expect lint:no-literal-password
             'services.spotify.refresh_token' => 'test-refresh-token',
         ]);
     }
@@ -30,6 +32,7 @@ class SpotifyTest extends TestCase
     {
         Http::fake([
             'accounts.spotify.com/api/token' => Http::response([
+                // @mago-expect lint:no-literal-password
                 'access_token' => 'test-token',
                 'token_type' => 'Bearer',
                 'expires_in' => 3600,
@@ -68,6 +71,7 @@ class SpotifyTest extends TestCase
     {
         Http::fake([
             'accounts.spotify.com/api/token' => Http::response([
+                // @mago-expect lint:no-literal-password
                 'access_token' => 'test-token',
                 'token_type' => 'Bearer',
                 'expires_in' => 3600,

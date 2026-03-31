@@ -31,6 +31,7 @@ class RegistrationTest extends TestCase
         $response = $this->post(route('register.store'), [
             'name' => 'Test User',
             'email' => 'test@example.com',
+            // @mago-expect lint:no-literal-password
             'password' => 'password',
             'password_confirmation' => 'password',
         ]);

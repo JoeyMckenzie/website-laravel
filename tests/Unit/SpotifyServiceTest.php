@@ -19,7 +19,9 @@ class SpotifyServiceTest extends TestCase
 
         config([
             'services.spotify.client_id' => 'test-client-id',
+            // @mago-expect lint:no-literal-password
             'services.spotify.client_secret' => 'test-client-secret',
+            // @mago-expect lint:no-literal-password
             'services.spotify.refresh_token' => 'test-refresh-token',
         ]);
     }
@@ -28,6 +30,7 @@ class SpotifyServiceTest extends TestCase
     {
         Http::fake([
             'accounts.spotify.com/api/token' => Http::response([
+                // @mago-expect lint:no-literal-password
                 'access_token' => 'test-token',
                 'token_type' => 'Bearer',
                 'expires_in' => 3600,
@@ -46,7 +49,7 @@ class SpotifyServiceTest extends TestCase
             ]),
         ]);
 
-        $service = new SpotifyService();
+        $service = new SpotifyService;
         $result = $service->nowPlaying();
 
         static::assertNotNull($result);
@@ -60,6 +63,7 @@ class SpotifyServiceTest extends TestCase
     {
         Http::fake([
             'accounts.spotify.com/api/token' => Http::response([
+                // @mago-expect lint:no-literal-password
                 'access_token' => 'test-token',
                 'token_type' => 'Bearer',
                 'expires_in' => 3600,
@@ -79,7 +83,7 @@ class SpotifyServiceTest extends TestCase
             ]),
         ]);
 
-        $service = new SpotifyService();
+        $service = new SpotifyService;
         $result = $service->nowPlaying();
 
         static::assertNotNull($result);
@@ -92,6 +96,7 @@ class SpotifyServiceTest extends TestCase
     {
         Http::fake([
             'accounts.spotify.com/api/token' => Http::response([
+                // @mago-expect lint:no-literal-password
                 'access_token' => 'test-token',
                 'token_type' => 'Bearer',
                 'expires_in' => 3600,
@@ -99,7 +104,7 @@ class SpotifyServiceTest extends TestCase
             'api.spotify.com/v1/me/player*' => Http::response(null, 204),
         ]);
 
-        $service = new SpotifyService();
+        $service = new SpotifyService;
         $result = $service->nowPlaying();
 
         static::assertNull($result);
@@ -109,6 +114,7 @@ class SpotifyServiceTest extends TestCase
     {
         Http::fake([
             'accounts.spotify.com/api/token' => Http::response([
+                // @mago-expect lint:no-literal-password
                 'access_token' => 'test-token',
                 'token_type' => 'Bearer',
                 'expires_in' => 3600,
@@ -116,7 +122,7 @@ class SpotifyServiceTest extends TestCase
             'api.spotify.com/v1/me/player*' => Http::response(null, 500),
         ]);
 
-        $service = new SpotifyService();
+        $service = new SpotifyService;
         $result = $service->nowPlaying();
 
         static::assertNull($result);
@@ -126,6 +132,7 @@ class SpotifyServiceTest extends TestCase
     {
         Http::fake([
             'accounts.spotify.com/api/token' => Http::response([
+                // @mago-expect lint:no-literal-password
                 'access_token' => 'test-token',
                 'token_type' => 'Bearer',
                 'expires_in' => 3600,
@@ -133,7 +140,7 @@ class SpotifyServiceTest extends TestCase
             'api.spotify.com/v1/me/player*' => Http::response(null, 204),
         ]);
 
-        $service = new SpotifyService();
+        $service = new SpotifyService;
         $service->nowPlaying();
         $service->nowPlaying();
 

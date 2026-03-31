@@ -45,12 +45,13 @@ class TwoFactorChallengeTest extends TestCase
 
         $this->post(route('login'), [
             'email' => $user->email,
+            // @mago-expect lint:no-literal-password
             'password' => 'password',
         ]);
 
         $this
             ->get(route('two-factor.login'))
             ->assertOk()
-            ->assertInertia(static fn(Assert $page) => $page->component('auth/two-factor-challenge'));
+            ->assertInertia(static fn (Assert $page) => $page->component('auth/two-factor-challenge'));
     }
 }
