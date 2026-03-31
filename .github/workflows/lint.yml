@@ -36,6 +36,9 @@ jobs:
       - name: Run mago lint
         run: composer lint
 
+      - name: Run mago analyze
+        run: composer analyze
+
       - name: Run mago formatter
         run: composer fmt
 
