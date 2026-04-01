@@ -6,7 +6,7 @@ import AuthLayout from '@/layouts/auth-layout';
 import BlogLayout from '@/layouts/blog-layout';
 import SettingsLayout from '@/layouts/settings/layout';
 
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || 'joeymckenzie.tech';
 
 createInertiaApp({
     title: (title) => (title ? `${title} - ${appName}` : appName),
@@ -15,6 +15,7 @@ createInertiaApp({
             case name === 'home':
             case name === 'now':
             case name === 'uses':
+            case name === 'cv':
             case name === 'guestbook':
             case name === 'error':
                 return BlogLayout;

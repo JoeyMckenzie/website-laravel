@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeController::class)->name('home');
 Route::inertia('/now', 'now')->name('now');
 Route::inertia('/uses', 'uses')->name('uses');
+if (! app()->isProduction()) {
+    Route::inertia('/cv', 'cv')->name('cv');
+}
 
 Route::get('/guestbook', [GuestbookController::class, 'index'])->name('guestbook');
 Route::post('/guestbook', [GuestbookController::class, 'store'])->middleware('throttle:10,1')->name('guestbook.store');
