@@ -5,7 +5,7 @@ import { index } from '@/actions/App/Http/Controllers/BlogController';
 import { PageTransition } from '@/components/motion';
 import { SpotifyNowPlaying } from '@/components/spotify-now-playing';
 import { useCurrentUrl } from '@/hooks/use-current-url';
-import { cv, guestbook, home, now, uses } from '@/routes';
+import { guestbook, home, now, uses } from '@/routes';
 import { LaravelLogo } from '@/components/laravel-icon';
 import { AnimatedGridPattern } from '@/components/ui/animated-grid-pattern';
 import { cn } from '@/lib/utils';
@@ -28,7 +28,11 @@ export default function BlogLayout({
         ];
 
         if (isLocal) {
-            items.push({ href: cv(), label: '/cv', prefixMatch: false });
+            items.push({
+                href: { url: '/cv', method: 'get' as const },
+                label: '/cv',
+                prefixMatch: false,
+            });
         }
 
         return items;
