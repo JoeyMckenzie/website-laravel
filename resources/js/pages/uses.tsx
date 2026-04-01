@@ -20,7 +20,11 @@ const sections = [
     {
         title: 'Software',
         items: [
-            { name: 'Zen', description: 'FOTM browser of choice' },
+            {
+                name: 'Zen',
+                description:
+                    'FOTM browser of choice (until I go back to Firefox)',
+            },
             { name: 'Figma', description: 'Design and prototyping' },
             { name: 'TablePlus', description: 'Database management' },
             { name: 'Raycast', description: 'Launcher and productivity' },
@@ -29,7 +33,10 @@ const sections = [
     {
         title: 'Hardware',
         items: [
-            { name: 'MacBook Pro', description: 'Daily driver' },
+            {
+                name: 'MacBook Pro',
+                description: "Because I'm not smart enough for Linux",
+            },
             { name: 'Apple Studio Display', description: 'External monitor' },
         ],
     },
