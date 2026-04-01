@@ -20,7 +20,7 @@ const sections = [
     {
         title: 'Software',
         items: [
-            { name: 'Zen', description: 'Browser of choice' },
+            { name: 'Zen', description: 'FOTM browser of choice' },
             { name: 'Figma', description: 'Design and prototyping' },
             { name: 'TablePlus', description: 'Database management' },
             { name: 'Raycast', description: 'Launcher and productivity' },
