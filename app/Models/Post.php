@@ -55,6 +55,14 @@ final class Post extends Model
         'reading_time_minutes',
     ];
 
+    #[\Override]
+    protected static function booted(): void
+    {
+        if (app()->isProduction()) {
+            self::addGlobalScope('published', static fn (Builder $query) => $query->whereNotNull('published_at'));
+        }
+    }
+
     public static function schema(Blueprint $table): void
     {
         $table->string('title');
@@ -99,7 +107,7 @@ final class Post extends Model
     #[Scope]
     public function published(Builder $query): void
     {
-        $query->where('published_at', '!=', null);
+        $query->whereNotNull('published_at');
     }
 
     /**

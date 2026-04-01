@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Services\MarkdownRenderer;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -22,12 +23,11 @@ final class BlogController extends Controller
 
         $posts = Post::query()
             ->with('tag:id,name')
-            ->when(app()->isProduction(), static fn($query) => $query->published())
-            ->when(is_string($selectedTag), static fn($query) => $query->whereHas('tag', static fn($q) => $q->where(
+            ->when(is_string($selectedTag), static fn (Builder $query) => $query->whereHas('tag', static fn ($q) => $q->where(
                 'name',
                 $selectedTag,
             )))
-            ->when(is_string($search) && $search !== '', static fn($query) => $query->where(static fn($q) => $q->where(
+            ->when(is_string($search) && filled($search), static fn (Builder $query) => $query->where(static fn (Builder $q) => $q->where(
                 'title',
                 'like',
                 "%{$search}%",
@@ -41,6 +41,7 @@ final class BlogController extends Controller
                 'tag_id',
                 'published_at',
                 'storage_key',
+                'content',
             ]);
 
         return Inertia::render('blog/index', [
