@@ -47,8 +47,13 @@ final class Post extends Model
 {
     use Orbital;
 
-    /** @var array<array-key, mixed> */
-    protected $appends = ['formatted_published_at', 'reading_time_minutes'];
+    /**
+     * @var list<string>
+     */
+    protected $appends = [
+        'formatted_published_at',
+        'reading_time_minutes',
+    ];
 
     public static function schema(Blueprint $table): void
     {
@@ -67,7 +72,7 @@ final class Post extends Model
      */
     public function formattedPublishedAt(): Attribute
     {
-        return Attribute::get(fn(): string => $this->published_at !== null
+        return Attribute::get(fn (): string => $this->published_at !== null
             ? Date::parse($this->published_at)->format('M d, Y')
             : Date::now()->format('M d, Y'));
     }
@@ -77,7 +82,7 @@ final class Post extends Model
      */
     public function readingTimeMinutes(): Attribute
     {
-        return Attribute::get(fn(): int => (int) max(1, ceil(str_word_count(strip_tags($this->content ?? '')) / 200)));
+        return Attribute::get(fn (): int => (int) max(1, ceil(str_word_count(strip_tags($this->content ?? '')) / 200)));
     }
 
     /**

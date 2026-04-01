@@ -13,7 +13,15 @@ const sections = [
             { name: 'Tailwind', description: 'Self-explanatory' },
             {
                 name: 'SQLite / MySQL',
-                description: "I'll get around to Postgres eventually...",
+                description: "I'll get around to Postgres eventually",
+            },
+            {
+                name: 'AWS',
+                description: "There's no other options",
+            },
+            {
+                name: 'Cloudflare',
+                description: "Can't trust anyone these days",
             },
         ],
     },
@@ -25,17 +33,74 @@ const sections = [
                 description:
                     'FOTM browser of choice (until I go back to Firefox)',
             },
-            { name: 'Neovim', description: 'btw' },
-            { name: 'TablePlus', description: 'Database management' },
-            { name: 'Raycast', description: 'Launcher and productivity' },
+            {
+                name: 'Linear',
+                description:
+                    "I'm not middle management enough to respect a Jira dashboard",
+            },
+            {
+                name: 'Notion',
+                description: 'Miss me with those Atlassian products',
+            },
+            {
+                name: 'Herd',
+                description: 'Glorified PHP version manager',
+            },
+            {
+                name: 'Claude',
+                description: 'Truly innovative, I know',
+            },
+            {
+                name: 'Monologue',
+                description:
+                    'I work remote, gotta talk to someone (read: Claude)',
+            },
+            {
+                name: 'Slack',
+                description: 'Teams users are hostages of Microslop',
+            },
         ],
     },
     {
         title: 'Hardware',
         items: [
             {
-                name: 'MacBook Pro',
+                name: 'MacBook Pro M4',
                 description: "Because I'm not smart enough for Linux",
+            },
+            {
+                name: 'Fifine Condenser Mic',
+                description: "I've been told I have a face for radio",
+            },
+            {
+                name: 'AirPods Max 2',
+                description: 'Sticking to the uninformed consumerist theme',
+            },
+            {
+                name: 'ZSA Moonlander',
+                description: "I still hit 'x' instead of 'c' 200 times a day",
+            },
+        ],
+    },
+    {
+        title: 'Tools',
+        items: [
+            {
+                name: 'Ghostty',
+                description:
+                    "Because I don't want AI in my terminal (looking at you, Warp...)",
+            },
+            {
+                name: 'Neovim',
+                description: 'btw',
+            },
+            {
+                name: 'Claude Code',
+                description: 'Like the rest of the world',
+            },
+            {
+                name: 'Zellij',
+                description: 'Most of my success is due to tmux',
             },
         ],
     },
