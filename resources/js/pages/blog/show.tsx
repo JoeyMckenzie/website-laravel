@@ -42,7 +42,7 @@ export default function BlogShow({
                         {post.tag.hash_tagged}
                     </span>
                 </div>
-                <h1 className="text-3xl font-bold tracking-tight">
+                <h1 className="text-2xl font-bold tracking-tight">
                     {post.title}
                 </h1>
                 {post.image && (

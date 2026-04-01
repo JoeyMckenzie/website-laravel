@@ -11,7 +11,7 @@ export default function Now() {
             </Head>
 
             <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tight">Now</h1>
+                <h1 className="text-2xl font-bold tracking-tight">Now</h1>
                 <p className="text-muted-foreground">
                     A living changelog of what I'm learning, tinkering with, and
                     thinking about outside of client work.
@@ -19,7 +19,7 @@ export default function Now() {
             </div>
 
             <section className="mt-10 space-y-3 pt-6">
-                <h2 className="text-2xl tracking-tight">Work</h2>
+                <h2 className="text-xl tracking-tight">Work</h2>
                 <p className="leading-7 text-muted-foreground">
                     I'm currently a Senior Developer at{' '}
                     <a
@@ -43,7 +43,7 @@ export default function Now() {
             </section>
 
             <section className="mt-8 space-y-3 border-t pt-6">
-                <h2 className="text-2xl tracking-tight">Online</h2>
+                <h2 className="text-xl tracking-tight">Online</h2>
                 <p className="leading-7 text-muted-foreground">
                     In my spare time, I write a lot of PHP and enjoy tinkering
                     on ideas with Laravel. I've got quite a few fun projects
@@ -62,7 +62,7 @@ export default function Now() {
             </section>
 
             <section className="mt-8 space-y-3 border-t pt-6">
-                <h2 className="text-2xl tracking-tight">Offline</h2>
+                <h2 className="text-xl tracking-tight">Offline</h2>
                 <p className="leading-7 text-muted-foreground">
                     If I'm not sitting in front of a terminal, I'm chasing
                     around my two-year old and spending time with my family. I

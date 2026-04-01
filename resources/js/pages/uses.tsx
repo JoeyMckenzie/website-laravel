@@ -46,7 +46,7 @@ export default function Uses() {
             </Head>
 
             <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tight">Uses</h1>
+                <h1 className="text-2xl font-bold tracking-tight">Uses</h1>
                 <p className="text-muted-foreground">
                     The tools, software, and hardware I use on a daily basis.
                 </p>
@@ -54,7 +54,7 @@ export default function Uses() {
 
             {sections.map((section) => (
                 <section key={section.title} className="mt-8 space-y-3 pt-6">
-                    <h2 className="text-2xl tracking-tight">{section.title}</h2>
+                    <h2 className="text-xl tracking-tight">{section.title}</h2>
                     <ul className="space-y-3">
                         {section.items.map((item) => (
                             <li key={item.name}>

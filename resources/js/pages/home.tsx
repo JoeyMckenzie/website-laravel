@@ -14,7 +14,7 @@ export default function Home({ recentPosts }: { recentPosts: PostSummary[] }) {
             </Head>
 
             <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tight">
+                <h1 className="text-2xl font-bold tracking-tight">
                     Hi, I'm Joey.
                 </h1>
                 <p className="leading-7 text-muted-foreground">
@@ -25,7 +25,7 @@ export default function Home({ recentPosts }: { recentPosts: PostSummary[] }) {
 
             <section className="mt-10 space-y-4 pt-6">
                 <div className="flex items-center justify-between gap-4">
-                    <h2 className="text-2xl tracking-tight">Recent Posts</h2>
+                    <h2 className="text-xl tracking-tight">Recent Posts</h2>
                     <Link
                         href={index()}
                         className="text-sm text-muted-foreground transition-colors hover:text-foreground"

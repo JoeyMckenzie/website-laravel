@@ -21,7 +21,7 @@ export default function BlogLayout({
                 width={40}
                 height={40}
                 numSquares={40}
-                maxOpacity={0.25}
+                maxOpacity={0.06}
                 duration={3}
                 repeatDelay={0.5}
             />
