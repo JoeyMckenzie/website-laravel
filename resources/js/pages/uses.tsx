@@ -25,7 +25,7 @@ const sections = [
                 description:
                     'FOTM browser of choice (until I go back to Firefox)',
             },
-            { name: 'Figma', description: 'Design and prototyping' },
+            { name: 'Neovim', description: 'btw' },
             { name: 'TablePlus', description: 'Database management' },
             { name: 'Raycast', description: 'Launcher and productivity' },
         ],
@@ -37,7 +37,6 @@ const sections = [
                 name: 'MacBook Pro',
                 description: "Because I'm not smart enough for Linux",
             },
-            { name: 'Apple Studio Display', description: 'External monitor' },
         ],
     },
 ];
