@@ -37,8 +37,8 @@ export function SpotifyNowPlaying() {
 
     if (!nowPlaying) {
         return (
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <SpotifyIcon className="size-5 text-[#1DB954]" />
+            <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                <SpotifyIcon className="size-4 text-[#1DB954]" />
                 <span>Not listening</span>
             </div>
         );
@@ -49,7 +49,7 @@ export function SpotifyNowPlaying() {
             href={nowPlaying.href}
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            className="group flex items-center gap-3 text-xs text-muted-foreground transition-colors hover:text-foreground"
         >
             <img
                 src={nowPlaying.albumImage}

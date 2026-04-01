@@ -58,12 +58,6 @@ export default function BlogLayout({
                         >
                             /uses
                         </Link>
-                        <Link
-                            href={guestbook()}
-                            className="text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                            /guestbook
-                        </Link>
                     </nav>
                 </div>
             </header>
@@ -77,10 +71,10 @@ export default function BlogLayout({
                         href="https://laravel.com"
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        className="flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground"
                     >
                         <span>Powered by</span>
-                        <LaravelLogo className="size-5 fill-current text-[#FF2D20]" />
+                        <LaravelLogo className="size-4 fill-current text-[#FF2D20]" />
                     </a>
                 </div>
             </footer>
