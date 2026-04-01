@@ -1,6 +1,7 @@
 import { Head, Link, router } from '@inertiajs/react';
 import { useRef } from 'react';
 import { index } from '@/actions/App/Http/Controllers/BlogController';
+import { StaggeredItem, StaggeredList } from '@/components/motion';
 import PostPreviewCard from '@/components/post-preview-card';
 import type { PostSummary, Tag } from '@/types';
 
@@ -80,17 +81,19 @@ export default function BlogIndex({
                 </div>
             </div>
 
-            <div className="mt-8 space-y-8">
+            <StaggeredList className="mt-8 space-y-8">
                 {posts.length > 0 ? (
                     posts.map((post) => (
-                        <PostPreviewCard key={post.slug} post={post} />
+                        <StaggeredItem key={post.slug}>
+                            <PostPreviewCard post={post} />
+                        </StaggeredItem>
                     ))
                 ) : (
                     <p className="text-center text-muted-foreground">
                         No posts found.
                     </p>
                 )}
-            </div>
+            </StaggeredList>
         </>
     );
 }

@@ -1,5 +1,6 @@
 import { Head } from '@inertiajs/react';
 import { useEffect } from 'react';
+import { FadeIn, FadeInSection } from '@/components/motion';
 import PostReactions from '@/components/post-reactions';
 import type { PostDetail } from '@/types';
 
@@ -33,7 +34,7 @@ export default function BlogShow({
                 )}
             </Head>
 
-            <header className="mb-10 space-y-3">
+            <FadeIn className="mb-10 space-y-3">
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <time>{post.formatted_published_at}</time>
                     <span>&middot;</span>
@@ -54,16 +55,18 @@ export default function BlogShow({
                         />
                     </div>
                 )}
-            </header>
+            </FadeIn>
 
-            <article
-                className="prose max-w-none dark:prose-invert prose-img:mx-auto prose-img:rounded-md"
-                dangerouslySetInnerHTML={{ __html: content }}
-            />
+            <FadeInSection>
+                <article
+                    className="prose max-w-none dark:prose-invert prose-img:mx-auto prose-img:rounded-md"
+                    dangerouslySetInnerHTML={{ __html: content }}
+                />
+            </FadeInSection>
 
-            <div className="mt-10 border-t pt-6">
+            <FadeInSection className="mt-10 border-t pt-6">
                 <PostReactions slug={post.slug} />
-            </div>
+            </FadeInSection>
         </>
     );
 }

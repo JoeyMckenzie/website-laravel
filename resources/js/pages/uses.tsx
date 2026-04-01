@@ -1,4 +1,5 @@
 import { Head } from '@inertiajs/react';
+import { FadeInSection, StaggeredItem, StaggeredList } from '@/components/motion';
 
 const sections = [
     {
@@ -124,20 +125,23 @@ export default function Uses() {
             </div>
 
             {sections.map((section) => (
-                <section key={section.title} className="mt-8 space-y-3 pt-6">
+                <FadeInSection
+                    key={section.title}
+                    className="mt-8 space-y-3 pt-6"
+                >
                     <h2 className="text-xl tracking-tight">{section.title}</h2>
-                    <ul className="space-y-3">
+                    <StaggeredList className="space-y-3">
                         {section.items.map((item) => (
-                            <li key={item.name}>
+                            <StaggeredItem key={item.name}>
                                 <span className="font-medium">{item.name}</span>
                                 <span className="text-muted-foreground">
                                     {' '}
                                     &mdash; {item.description}
                                 </span>
-                            </li>
+                            </StaggeredItem>
                         ))}
-                    </ul>
-                </section>
+                    </StaggeredList>
+                </FadeInSection>
             ))}
         </>
     );

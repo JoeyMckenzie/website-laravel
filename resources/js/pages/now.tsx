@@ -1,4 +1,5 @@
 import { Head } from '@inertiajs/react';
+import { FadeInSection } from '@/components/motion';
 
 export default function Now() {
     return (
@@ -18,7 +19,7 @@ export default function Now() {
                 </p>
             </div>
 
-            <section className="mt-10 space-y-3 pt-6">
+            <FadeInSection className="mt-10 space-y-3 pt-6">
                 <h2 className="text-xl tracking-tight">Work</h2>
                 <p className="leading-7 text-muted-foreground">
                     I'm currently a Senior Developer at{' '}
@@ -40,9 +41,9 @@ export default function Now() {
                     with PHP and TypeScript, and do a lot to build our community
                     and empower our developers to be the best they can be.
                 </p>
-            </section>
+            </FadeInSection>
 
-            <section className="mt-8 space-y-3 border-t pt-6">
+            <FadeInSection className="mt-8 space-y-3 border-t pt-6">
                 <h2 className="text-xl tracking-tight">Online</h2>
                 <p className="leading-7 text-muted-foreground">
                     In my spare time, I write a lot of PHP and enjoy tinkering
@@ -59,9 +60,9 @@ export default function Now() {
                     </a>
                     .
                 </p>
-            </section>
+            </FadeInSection>
 
-            <section className="mt-8 space-y-3 border-t pt-6">
+            <FadeInSection className="mt-8 space-y-3 border-t pt-6">
                 <h2 className="text-xl tracking-tight">Offline</h2>
                 <p className="leading-7 text-muted-foreground">
                     If I'm not sitting in front of a terminal, I'm chasing
@@ -78,7 +79,7 @@ export default function Now() {
                     </a>
                     .
                 </p>
-            </section>
+            </FadeInSection>
         </>
     );
 }

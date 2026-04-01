@@ -1,6 +1,8 @@
 import { Link, usePage } from '@inertiajs/react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useMemo } from 'react';
 import { index } from '@/actions/App/Http/Controllers/BlogController';
+import { PageTransition } from '@/components/motion';
 import { SpotifyNowPlaying } from '@/components/spotify-now-playing';
 import { useCurrentUrl } from '@/hooks/use-current-url';
 import { cv, guestbook, home, now, uses } from '@/routes';
@@ -13,8 +15,9 @@ export default function BlogLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const { isCurrentUrl, isCurrentOrParentUrl } = useCurrentUrl();
+    const { isCurrentUrl, isCurrentOrParentUrl, currentUrl } = useCurrentUrl();
     const { isLocal } = usePage<{ isLocal: boolean }>().props;
+    const shouldReduceMotion = useReducedMotion();
 
     const navItems = useMemo(() => {
         const items = [
@@ -36,7 +39,7 @@ export default function BlogLayout({
             <AnimatedGridPattern
                 className={cn(
                     'absolute inset-0 h-full w-full',
-                    '[mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,white,transparent)]',
+                    'mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,white,transparent)]',
                 )}
                 width={40}
                 height={40}
@@ -64,22 +67,36 @@ export default function BlogLayout({
                                     key={item.label}
                                     href={item.href}
                                     className={cn(
-                                        'transition-colors hover:text-foreground',
+                                        'relative transition-colors hover:text-foreground',
                                         isActive
                                             ? 'font-medium text-foreground'
                                             : 'text-muted-foreground',
                                     )}
                                 >
                                     {item.label}
+                                    {isActive && !shouldReduceMotion && (
+                                        <motion.span
+                                            layoutId="nav-active"
+                                            className="absolute -bottom-1 left-0 h-0.5 w-full bg-foreground"
+                                            transition={{
+                                                type: 'spring',
+                                                stiffness: 500,
+                                                damping: 30,
+                                            }}
+                                        />
+                                    )}
                                 </Link>
                             );
                         })}
                     </nav>
                 </div>
             </header>
-            <main className="relative z-10 mx-auto w-full max-w-3xl grow px-6 py-10">
+            <PageTransition
+                key={currentUrl}
+                className="relative z-10 mx-auto w-full max-w-3xl grow px-6 py-10"
+            >
                 {children}
-            </main>
+            </PageTransition>
             <footer className="relative z-10 bg-background/80 backdrop-blur-sm">
                 <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
                     <SpotifyNowPlaying />

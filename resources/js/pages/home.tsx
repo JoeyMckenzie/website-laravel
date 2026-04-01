@@ -1,5 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
 import { index } from '@/actions/App/Http/Controllers/BlogController';
+import { FadeIn, StaggeredItem, StaggeredList } from '@/components/motion';
 import PostPreviewCard from '@/components/post-preview-card';
 import SocialLinks from '@/components/social-links';
 import type { PostSummary } from '@/types';
@@ -36,11 +37,13 @@ export default function Home({ recentPosts }: { recentPosts: PostSummary[] }) {
                     </Link>
                 </div>
 
-                <div className="space-y-8">
+                <StaggeredList className="space-y-8">
                     {recentPosts.map((post) => (
-                        <PostPreviewCard key={post.slug} post={post} />
+                        <StaggeredItem key={post.slug}>
+                            <PostPreviewCard post={post} />
+                        </StaggeredItem>
                     ))}
-                </div>
+                </StaggeredList>
             </section>
         </>
     );

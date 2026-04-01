@@ -1,5 +1,10 @@
 import { Head } from '@inertiajs/react';
 import { Download } from 'lucide-react';
+import {
+    FadeInSection,
+    StaggeredItem,
+    StaggeredList,
+} from '@/components/motion';
 
 const experience = [
     {
@@ -109,11 +114,11 @@ export default function Cv() {
                 </a>
             </div>
 
-            <section className="mt-8 space-y-3 pt-6">
+            <FadeInSection className="mt-8 space-y-3 pt-6">
                 <h2 className="text-xl tracking-tight">Experience</h2>
-                <div className="space-y-6">
+                <StaggeredList className="space-y-6">
                     {experience.map((job) => (
-                        <div key={`${job.company}-${job.role}`}>
+                        <StaggeredItem key={`${job.company}-${job.role}`}>
                             <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
                                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2">
                                     <span className="font-medium">
@@ -132,12 +137,12 @@ export default function Cv() {
                                     <li key={bullet}>{bullet}</li>
                                 ))}
                             </ul>
-                        </div>
+                        </StaggeredItem>
                     ))}
-                </div>
-            </section>
+                </StaggeredList>
+            </FadeInSection>
 
-            <section className="mt-8 space-y-3 pt-6">
+            <FadeInSection className="mt-8 space-y-3 pt-6">
                 <h2 className="text-xl tracking-tight">Education</h2>
                 {education.map((edu) => (
                     <div
@@ -156,13 +161,13 @@ export default function Cv() {
                         </span>
                     </div>
                 ))}
-            </section>
+            </FadeInSection>
 
-            <section className="mt-8 space-y-3 pt-6">
+            <FadeInSection className="mt-8 space-y-3 pt-6">
                 <h2 className="text-xl tracking-tight">Skills</h2>
-                <ul className="space-y-3">
+                <StaggeredList className="space-y-3">
                     {skills.map((group) => (
-                        <li key={group.category}>
+                        <StaggeredItem key={group.category}>
                             <span className="font-medium">
                                 {group.category}
                             </span>
@@ -170,10 +175,10 @@ export default function Cv() {
                                 {' '}
                                 &mdash; {group.items}
                             </span>
-                        </li>
+                        </StaggeredItem>
                     ))}
-                </ul>
-            </section>
+                </StaggeredList>
+            </FadeInSection>
         </>
     );
 }
