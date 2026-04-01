@@ -1,6 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
 import { index } from '@/actions/App/Http/Controllers/BlogController';
 import PostPreviewCard from '@/components/post-preview-card';
+import SocialLinks from '@/components/social-links';
 import type { PostSummary } from '@/types';
 
 export default function Home({ recentPosts }: { recentPosts: PostSummary[] }) {
@@ -13,7 +14,7 @@ export default function Home({ recentPosts }: { recentPosts: PostSummary[] }) {
                 />
             </Head>
 
-            <div className="space-y-2">
+            <div className="space-y-3">
                 <h1 className="text-2xl font-bold tracking-tight">
                     Hi, I'm Joey.
                 </h1>
@@ -21,6 +22,7 @@ export default function Home({ recentPosts }: { recentPosts: PostSummary[] }) {
                     Developer. Product engineer. Dad. PHP enjoyer. Building
                     things with Laravel and giving unsolicited advice on tech.
                 </p>
+                <SocialLinks />
             </div>
 
             <section className="mt-10 space-y-4 pt-6">
