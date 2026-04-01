@@ -1,16 +1,26 @@
 import { Link } from '@inertiajs/react';
 import { index } from '@/actions/App/Http/Controllers/BlogController';
 import { SpotifyNowPlaying } from '@/components/spotify-now-playing';
+import { useCurrentUrl } from '@/hooks/use-current-url';
 import { guestbook, home, now, uses } from '@/routes';
 import { LaravelLogo } from '@/components/laravel-icon';
 import { AnimatedGridPattern } from '@/components/ui/animated-grid-pattern';
 import { cn } from '@/lib/utils';
+
+const navItems = [
+    { href: home(), label: '/home', prefixMatch: false },
+    { href: now(), label: '/now', prefixMatch: false },
+    { href: index(), label: '/blog', prefixMatch: true },
+    { href: uses(), label: '/uses', prefixMatch: false },
+];
 
 export default function BlogLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
+    const { isCurrentUrl, isCurrentOrParentUrl } = useCurrentUrl();
+
     return (
         <div className="relative flex min-h-svh flex-col overflow-hidden bg-background">
             <AnimatedGridPattern
@@ -34,30 +44,26 @@ export default function BlogLayout({
                         jm.
                     </Link>
                     <nav className="flex items-center gap-6 text-sm">
-                        <Link
-                            href={home()}
-                            className="text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                            /home
-                        </Link>
-                        <Link
-                            href={now()}
-                            className="text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                            /now
-                        </Link>
-                        <Link
-                            href={index()}
-                            className="text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                            /blog
-                        </Link>
-                        <Link
-                            href={uses()}
-                            className="text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                            /uses
-                        </Link>
+                        {navItems.map((item) => {
+                            const isActive = item.prefixMatch
+                                ? isCurrentOrParentUrl(item.href)
+                                : isCurrentUrl(item.href);
+
+                            return (
+                                <Link
+                                    key={item.label}
+                                    href={item.href}
+                                    className={cn(
+                                        'transition-colors hover:text-foreground',
+                                        isActive
+                                            ? 'font-medium text-foreground'
+                                            : 'text-muted-foreground',
+                                    )}
+                                >
+                                    {item.label}
+                                </Link>
+                            );
+                        })}
                     </nav>
                 </div>
             </header>
