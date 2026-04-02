@@ -20,7 +20,7 @@ export default function Home({ recentPosts }: { recentPosts: PostSummary[] }) {
                     Hi, I'm Joey.
                 </h1>
                 <p className="leading-7 text-muted-foreground">
-                    Developer. Product engineer. Dad. PHP enjoyer. Building
+                    Developer. Product builder. Dad. PHP enjoyer. Building
                     things with Laravel and giving unsolicited advice on tech.
                 </p>
                 <SocialLinks />
