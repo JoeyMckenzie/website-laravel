@@ -132,9 +132,10 @@ export default function Cv() {
                     applications, distributed systems, and the occasional thing
                     I probably should not have over-engineered. I started my
                     career analyzing Navy shipbuilding costs, which is a
-                    sentence that still surprises me. These days I mostly write
-                    PHP and TypeScript and try to leave codebases better than I
-                    found them.
+                    sentence that still surprises me. I've worked in a lot of
+                    language ecoystems. These days I mostly write PHP and
+                    TypeScript and try to leave codebases better than I found
+                    them.
                 </p>
             </FadeInSection>
 
