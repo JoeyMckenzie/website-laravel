@@ -67,9 +67,18 @@ const education = [
 ];
 
 const skills = [
-    { category: 'Languages', items: 'PHP, TypeScript, Go, Rust' },
-    { category: 'Frameworks', items: 'Laravel, React, Tailwind CSS' },
-    { category: 'Tools', items: 'Git, Docker, AWS, CI/CD' },
+    {
+        category: 'Languages',
+        items: ['PHP', 'C#', 'TypeScript', 'JavaScript', 'SQL', 'Java', 'Rust', 'HTML', 'CSS'],
+    },
+    {
+        category: 'Frameworks',
+        items: ['Laravel', '.NET', 'React', 'Angular', 'Spring Boot', 'Next.js', 'Inertia.js'],
+    },
+    {
+        category: 'Infrastructure',
+        items: ['AWS', 'Azure', 'Docker', 'Terraform', 'GitHub', 'CI/CD'],
+    },
 ];
 
 export default function Cv() {
@@ -153,14 +162,18 @@ export default function Cv() {
                 <h2 className="text-xl tracking-tight">Skills</h2>
                 <StaggeredList className="space-y-3">
                     {skills.map((group) => (
-                        <StaggeredItem key={group.category}>
-                            <span className="font-medium">
-                                {group.category}
-                            </span>
-                            <span className="text-muted-foreground">
-                                {' '}
-                                &mdash; {group.items}
-                            </span>
+                        <StaggeredItem key={group.category} className="space-y-2">
+                            <span className="text-sm font-medium">{group.category}</span>
+                            <div className="flex flex-wrap gap-2">
+                                {group.items.map((item) => (
+                                    <span
+                                        key={item}
+                                        className="rounded-md border border-border bg-muted px-2 py-0.5 text-xs text-muted-foreground"
+                                    >
+                                        {item}
+                                    </span>
+                                ))}
+                            </div>
                         </StaggeredItem>
                     ))}
                 </StaggeredList>
