@@ -19,42 +19,42 @@ const experience = [
         role: 'Senior Software Engineer',
         dates: 'Jun 2024 — Aug 2025',
         summary:
-            'Worked on platform security for an HR system managing 7 million users across 3,000+ organizations. Built device fingerprinting services, a CSP violation analytics pipeline, and a CSRF protection framework that apparently fixed 1,500+ security vulnerabilities. Turns out enterprise software has a lot of security vulnerabilities.',
+            'C# and .NET in the HR and workforce management space. Enterprise security at scale is a humbling domain, and I have the threat models to prove it.',
     },
     {
         company: 'National Funding',
         role: 'Senior Software Engineer',
         dates: 'Jan 2022 — Jun 2024',
         summary:
-            'Built loan management systems on AWS using serverless workflows, .NET, and more acronyms than I care to count. Integrated Plaid for loan qualification, wrangled Salesforce into behaving, and wrote enough Terraform to have opinions about it. Strong opinions. Mostly positive.',
+            'C#, .NET, and AWS in the small business lending space. Serverless, Terraform, and more financial acronyms than any one person should have to know. I now have opinions about loan origination software.',
     },
     {
         company: 'MediKeeper',
         role: 'Software Engineer',
         dates: 'Dec 2020 — Jan 2022',
         summary:
-            'Helped migrate legacy health and wellness apps off ASP.NET WebForms, which is exactly as fun as it sounds. Built out .NET and Vue features, improved test coverage significantly, and collaborated with accessibility teams to make sure the apps worked for everyone and not just people who happen to use a mouse.',
+            'C#, .NET, and Vue in the health and wellness space. Corporate wellness turns out to be a real industry, which I did not fully appreciate until I was neck-deep in it.',
     },
     {
         company: 'Sierra Pacific Industries',
         role: 'Applications Developer',
         dates: 'Jan 2020 — Dec 2020',
         summary:
-            'Migrated IBM RPG green screen inventory systems managing $800 million in yearly revenue to .NET Core and Angular. If you have never had to read RPG code before, consider yourself lucky. I have seen things.',
+            '.NET and Angular in the lumber and manufacturing space. Also some IBM RPG, briefly and involuntarily. I have made my peace with it.',
     },
     {
         company: 'VSP Vision Care',
         role: 'Associate Software Engineer',
         dates: 'Jun 2018 — Jan 2020',
         summary:
-            'Built patient claims management systems for optical retailers serving 2 million monthly users with Angular, Java, and Spring Boot. My first real enterprise job, where I learned that "we\'ve always done it this way" is a complete sentence to some people.',
+            'Java, Spring Boot, and Angular in the optical insurance space. My first enterprise job, where I learned that healthcare billing is its own entire universe with its own rules, customs, and ancient dialects.',
     },
     {
         company: 'SAIC (formerly Engility)',
         role: 'Operations Research Analyst',
         dates: 'Sept 2016 — May 2018',
         summary:
-            'Analyzed federal financial data with R and Python to build cost models for Navy shipbuilding programs. Started my career moving Excel spreadsheets into SQL Server and writing .NET background jobs, which somehow led to everything else on this page.',
+            'R, Python, SQL, and .NET in the federal defense contracting space. I started my career building cost models for Navy shipbuilding programs, which is still the most interesting sentence I have ever had to explain at a party.',
     },
 ];
 
