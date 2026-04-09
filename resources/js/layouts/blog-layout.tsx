@@ -1,14 +1,21 @@
-import { Link, usePage } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { useMemo } from 'react';
 import { index } from '@/actions/App/Http/Controllers/BlogController';
 import { PageTransition } from '@/components/motion';
 import { SpotifyNowPlaying } from '@/components/spotify-now-playing';
 import { useCurrentUrl } from '@/hooks/use-current-url';
-import { guestbook, home, now, uses } from '@/routes';
+import { cv, home, now, uses } from '@/routes';
 import { LaravelLogo } from '@/components/laravel-icon';
 import { AnimatedGridPattern } from '@/components/ui/animated-grid-pattern';
 import { cn } from '@/lib/utils';
+
+const navItems = [
+    { href: home(), label: '/home', prefixMatch: false },
+    { href: now(), label: '/now', prefixMatch: false },
+    { href: index(), label: '/blog', prefixMatch: true },
+    { href: uses(), label: '/uses', prefixMatch: false },
+    { href: cv(), label: '/cv', prefixMatch: false },
+];
 
 export default function BlogLayout({
     children,
@@ -16,27 +23,7 @@ export default function BlogLayout({
     children: React.ReactNode;
 }) {
     const { isCurrentUrl, isCurrentOrParentUrl, currentUrl } = useCurrentUrl();
-    const { isLocal } = usePage<{ isLocal: boolean }>().props;
     const shouldReduceMotion = useReducedMotion();
-
-    const navItems = useMemo(() => {
-        const items = [
-            { href: home(), label: '/home', prefixMatch: false },
-            { href: now(), label: '/now', prefixMatch: false },
-            { href: index(), label: '/blog', prefixMatch: true },
-            { href: uses(), label: '/uses', prefixMatch: false },
-        ];
-
-        if (isLocal) {
-            items.push({
-                href: { url: '/cv', method: 'get' as const },
-                label: '/cv',
-                prefixMatch: false,
-            });
-        }
-
-        return items;
-    }, [isLocal]);
 
     return (
         <div className="relative flex min-h-svh flex-col overflow-hidden bg-background">

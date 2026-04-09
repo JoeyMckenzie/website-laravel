@@ -69,11 +69,29 @@ const education = [
 const skills = [
     {
         category: 'Languages',
-        items: ['PHP', 'C#', 'TypeScript', 'JavaScript', 'SQL', 'Java', 'Rust', 'HTML', 'CSS'],
+        items: [
+            'PHP',
+            'C#',
+            'TypeScript',
+            'JavaScript',
+            'SQL',
+            'Java',
+            'Rust',
+            'HTML',
+            'CSS',
+        ],
     },
     {
         category: 'Frameworks',
-        items: ['Laravel', '.NET', 'React', 'Angular', 'Spring Boot', 'Next.js', 'Inertia.js'],
+        items: [
+            'Laravel',
+            '.NET',
+            'React',
+            'Angular',
+            'Spring Boot',
+            'Next.js',
+            'Inertia.js',
+        ],
     },
     {
         category: 'Infrastructure',
@@ -96,9 +114,6 @@ export default function Cv() {
                     <h1 className="text-2xl font-bold tracking-tight">
                         Joey McKenzie
                     </h1>
-                    <p className="flex items-center gap-2 text-muted-foreground">
-                        Product engineer. Developer. Tinkerer.
-                    </p>
                 </div>
                 <a
                     href="/resume.pdf"
@@ -110,6 +125,18 @@ export default function Cv() {
                     Download PDF
                 </a>
             </div>
+
+            <FadeInSection className="mt-6">
+                <p className="leading-7 text-muted-foreground">
+                    Product engineer with a passion for tinkering, building web
+                    applications, distributed systems, and the occasional thing
+                    I probably should not have over-engineered. I started my
+                    career analyzing Navy shipbuilding costs, which is a
+                    sentence that still surprises me. These days I mostly write
+                    PHP and TypeScript and try to leave codebases better than I
+                    found them.
+                </p>
+            </FadeInSection>
 
             <FadeInSection className="mt-8 space-y-3 pt-6">
                 <h2 className="text-xl tracking-tight">Experience</h2>
@@ -162,8 +189,13 @@ export default function Cv() {
                 <h2 className="text-xl tracking-tight">Skills</h2>
                 <StaggeredList className="space-y-3">
                     {skills.map((group) => (
-                        <StaggeredItem key={group.category} className="space-y-2">
-                            <span className="text-sm font-medium">{group.category}</span>
+                        <StaggeredItem
+                            key={group.category}
+                            className="space-y-2"
+                        >
+                            <span className="text-sm font-medium">
+                                {group.category}
+                            </span>
                             <div className="flex flex-wrap gap-2">
                                 {group.items.map((item) => (
                                     <span
