@@ -68,34 +68,24 @@ const education = [
 
 const skills = [
     {
-        category: 'Languages',
+        category: 'Will yap about (and pays my bills)',
+        items: ['PHP', 'Laravel', 'TypeScript', 'React', 'Rust', 'Inertia.js'],
+    },
+    {
+        category: 'What previously paid my bills',
         items: [
-            'PHP',
             'C#',
-            'TypeScript',
-            'JavaScript',
-            'SQL',
-            'Java',
-            'Rust',
-            'HTML',
-            'CSS',
-        ],
-    },
-    {
-        category: 'Frameworks',
-        items: [
-            'Laravel',
             '.NET',
-            'React',
+            'Azure',
             'Angular',
-            'Spring Boot',
             'Next.js',
-            'Inertia.js',
+            'Java',
+            'Spring Boot',
         ],
     },
     {
-        category: 'Infrastructure',
-        items: ['AWS', 'Azure', 'Docker', 'Terraform', 'GitHub', 'CI/CD'],
+        category: 'The glue nobody thanks (that also pays my bills)',
+        items: ['AWS', 'Azure', 'Docker', 'Terraform', 'GitHub', 'Kubernetes'],
     },
 ];
 
@@ -115,15 +105,6 @@ export default function Cv() {
                         Joey McKenzie
                     </h1>
                 </div>
-                <a
-                    href="/resume.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex shrink-0 items-center gap-2 rounded-md border border-border bg-background px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-                >
-                    <Download className="size-4" />
-                    Download PDF
-                </a>
             </div>
 
             <FadeInSection className="mt-6">
@@ -187,7 +168,7 @@ export default function Cv() {
             </FadeInSection>
 
             <FadeInSection className="mt-8 space-y-3 pt-6">
-                <h2 className="text-xl tracking-tight">Skills</h2>
+                <h2 className="text-xl tracking-tight">What I vibe with</h2>
                 <StaggeredList className="space-y-3">
                     {skills.map((group) => (
                         <StaggeredItem
