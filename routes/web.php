@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Http\Controllers\Api\PostReactionController;
 use App\Http\Controllers\Api\SpotifyController;
 use App\Http\Controllers\Auth\GithubController;
@@ -23,7 +25,7 @@ Route::get('/api/spotify/now-playing', SpotifyController::class)->name('api.spot
 Route::get('/api/posts/{slug}/reactions', [PostReactionController::class, 'index'])->name('api.posts.reactions.index');
 Route::post('/api/posts/{slug}/reactions', [PostReactionController::class, 'store'])->middleware('throttle:30,1')->name('api.posts.reactions.store');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(static function (): void {
     Route::inertia('dashboard', 'dashboard')->name('dashboard');
 });
 

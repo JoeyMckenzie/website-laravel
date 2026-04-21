@@ -9,13 +9,14 @@ use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Laravel\Fortify\Features;
+use Override;
 use Tests\TestCase;
 
-class VerificationNotificationTest extends TestCase
+final class VerificationNotificationTest extends TestCase
 {
     use RefreshDatabase;
 
-    #[\Override]
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();

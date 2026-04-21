@@ -8,13 +8,14 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia as Assert;
 use Laravel\Fortify\Features;
+use Override;
 use Tests\TestCase;
 
-class TwoFactorChallengeTest extends TestCase
+final class TwoFactorChallengeTest extends TestCase
 {
     use RefreshDatabase;
 
-    #[\Override]
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -53,6 +54,6 @@ class TwoFactorChallengeTest extends TestCase
         $this
             ->get(route('two-factor.login'))
             ->assertOk()
-            ->assertInertia(static fn(Assert $page) => $page->component('auth/two-factor-challenge'));
+            ->assertInertia(static fn (Assert $page): \Inertia\Testing\AssertableInertia => $page->component('auth/two-factor-challenge'));
     }
 }

@@ -7,13 +7,14 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Override;
 use Tests\TestCase;
 
-class SpotifyTest extends TestCase
+final class SpotifyTest extends TestCase
 {
     use RefreshDatabase;
 
-    #[\Override]
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();

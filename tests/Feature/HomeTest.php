@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia;
 use Tests\TestCase;
 
-class HomeTest extends TestCase
+final class HomeTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -23,16 +23,16 @@ class HomeTest extends TestCase
     {
         $response = $this->get(route('home'));
 
-        $response->assertInertia(static fn(AssertableInertia $page) => $page->component('home')->has('recentPosts'));
+        $response->assertInertia(static fn (AssertableInertia $page): \Inertia\Testing\AssertableInertia => $page->component('home')->has('recentPosts'));
     }
 
     public function test_home_page_has_recent_posts(): void
     {
         $response = $this->get(route('home'));
 
-        $response->assertInertia(static fn(AssertableInertia $page) => $page->component('home')->where(
+        $response->assertInertia(static fn (AssertableInertia $page): \Inertia\Testing\AssertableInertia => $page->component('home')->where(
             'recentPosts',
-            static fn($posts) => count($posts) <= 3,
+            static fn ($posts): bool => count($posts) <= 3,
         ));
     }
 }

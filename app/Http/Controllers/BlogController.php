@@ -30,8 +30,8 @@ final class BlogController extends Controller
             ->when(is_string($search) && filled($search), static fn (Builder $query) => $query->where(static fn (Builder $q) => $q->where(
                 'title',
                 'like',
-                "%{$search}%",
-            )->orWhere('description', 'like', "%{$search}%")))
+                sprintf('%%%s%%', $search),
+            )->orWhere('description', 'like', sprintf('%%%s%%', $search))))
             ->latestPublished()
             ->get([
                 'slug',

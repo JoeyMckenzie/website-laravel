@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Date;
 use Orbit\Concerns\Orbital;
+use Override;
 
 /**
  * @property string $title
@@ -25,8 +26,7 @@ use Orbit\Concerns\Orbital;
  * @property int $tag_id
  * @property-read string $formatted_published_at
  * @property-read int $reading_time_minutes
- * @property-read Tag $tag
- *
+ * @property-read \App\Models\Tag $tag
  * @method static Builder<static>|Post latestPublished()
  * @method static Builder<static>|Post newModelQuery()
  * @method static Builder<static>|Post newQuery()
@@ -40,7 +40,6 @@ use Orbit\Concerns\Orbital;
  * @method static Builder<static>|Post whereStorageKey($value)
  * @method static Builder<static>|Post whereTagId($value)
  * @method static Builder<static>|Post whereTitle($value)
- *
  * @mixin Eloquent
  */
 final class Post extends Model
@@ -54,14 +53,6 @@ final class Post extends Model
         'formatted_published_at',
         'reading_time_minutes',
     ];
-
-    #[\Override]
-    protected static function booted(): void
-    {
-        if (app()->isProduction()) {
-            self::addGlobalScope('published', static fn (Builder $query) => $query->whereNotNull('published_at'));
-        }
-    }
 
     public static function schema(Blueprint $table): void
     {
@@ -122,27 +113,35 @@ final class Post extends Model
             : $query->orderByRaw('CASE WHEN published_at IS NULL THEN 1 ELSE 0 END DESC')->orderByDesc('published_at');
     }
 
-    #[\Override]
+    #[Override]
     public function getKeyName(): string
     {
         return 'storage_key';
     }
 
-    #[\Override]
+    #[Override]
     public function getRouteKeyName(): string
     {
         return 'slug';
     }
 
-    #[\Override]
+    #[Override]
     public function getIncrementing(): bool
     {
         return false;
     }
 
-    #[\Override]
+    #[Override]
     public function usesTimestamps(): bool
     {
         return false;
+    }
+
+    #[Override]
+    protected static function booted(): void
+    {
+        if (app()->isProduction()) {
+            self::addGlobalScope('published', static fn (Builder $query) => $query->whereNotNull('published_at'));
+        }
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia;
 use Tests\TestCase;
 
-class GuestbookTest extends TestCase
+final class GuestbookTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -25,7 +25,7 @@ class GuestbookTest extends TestCase
         $response = $this->get(route('guestbook'));
 
         $response->assertInertia(
-            static fn(AssertableInertia $page) => $page->component('guestbook')->has('entries')->where(
+            static fn (AssertableInertia $page): \Inertia\Testing\AssertableInertia => $page->component('guestbook')->has('entries')->where(
                 'githubUser',
                 null,
             ),
@@ -43,7 +43,7 @@ class GuestbookTest extends TestCase
         $response = $this->get(route('guestbook'));
 
         $response->assertInertia(
-            static fn(AssertableInertia $page) => $page->component('guestbook')->has('entries', 1),
+            static fn (AssertableInertia $page): \Inertia\Testing\AssertableInertia => $page->component('guestbook')->has('entries', 1),
         );
     }
 
@@ -138,7 +138,7 @@ class GuestbookTest extends TestCase
         ])->get(route('guestbook'));
 
         $response->assertInertia(
-            static fn(AssertableInertia $page) => $page->component('guestbook')->where(
+            static fn (AssertableInertia $page): \Inertia\Testing\AssertableInertia => $page->component('guestbook')->where(
                 'githubUser.username',
                 'testuser',
             ),

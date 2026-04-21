@@ -8,7 +8,7 @@ use App\Models\PostReaction;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class PostReactionTest extends TestCase
+final class PostReactionTest extends TestCase
 {
     use RefreshDatabase;
 

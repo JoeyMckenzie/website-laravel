@@ -31,7 +31,7 @@ final class GuestbookController extends Controller
     {
         $username = $request->session()->get('github_username');
 
-        if (!$username) {
+        if (! $username) {
             return redirect()->route('guestbook');
         }
 

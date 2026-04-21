@@ -23,7 +23,7 @@ final class SpotifyService
 
             $response = Http::withHeaders([
                 'Accept' => 'application/json',
-                'Authorization' => "Bearer {$token}",
+                'Authorization' => 'Bearer ' . $token,
             ])->get(self::NOW_PLAYING_URL);
 
             if ($response->status() === 204 || $response->failed()) {

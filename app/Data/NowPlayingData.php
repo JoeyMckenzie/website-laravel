@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Data;
 
+use RuntimeException;
+
 /**
  * @phpstan-type SpotifyNowPlayingSchema array{
  *     currently_playing_type: string,
@@ -52,6 +54,6 @@ final readonly class NowPlayingData
             );
         }
 
-        throw new \RuntimeException('Unexpected Spotify response format');
+        throw new RuntimeException('Unexpected Spotify response format');
     }
 }

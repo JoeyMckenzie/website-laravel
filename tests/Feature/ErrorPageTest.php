@@ -7,7 +7,7 @@ namespace Tests\Feature;
 use Inertia\Testing\AssertableInertia;
 use Tests\TestCase;
 
-class ErrorPageTest extends TestCase
+final class ErrorPageTest extends TestCase
 {
     public function test_404_page_renders_error_component(): void
     {
@@ -15,6 +15,6 @@ class ErrorPageTest extends TestCase
 
         $response
             ->assertStatus(404)
-            ->assertInertia(static fn(AssertableInertia $page) => $page->component('error')->where('status', 404));
+            ->assertInertia(static fn (AssertableInertia $page): \Inertia\Testing\AssertableInertia => $page->component('error')->where('status', 404));
     }
 }

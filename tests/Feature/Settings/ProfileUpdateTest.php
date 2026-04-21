@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ProfileUpdateTest extends TestCase
+final class ProfileUpdateTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -34,9 +34,9 @@ class ProfileUpdateTest extends TestCase
 
         $user->refresh();
 
-        static::assertSame('Test User', $user->name);
-        static::assertSame('test@example.com', $user->email);
-        static::assertNull($user->email_verified_at);
+        self::assertSame('Test User', $user->name);
+        self::assertSame('test@example.com', $user->email);
+        self::assertNull($user->email_verified_at);
     }
 
     public function test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged(): void
@@ -50,7 +50,7 @@ class ProfileUpdateTest extends TestCase
 
         $response->assertSessionHasNoErrors()->assertRedirect(route('profile.edit'));
 
-        static::assertNotNull($user->refresh()->email_verified_at);
+        self::assertNotNull($user->refresh()->email_verified_at);
     }
 
     public function test_user_can_delete_their_account(): void
@@ -65,7 +65,7 @@ class ProfileUpdateTest extends TestCase
         $response->assertSessionHasNoErrors()->assertRedirect(route('home'));
 
         $this->assertGuest();
-        static::assertNull($user->fresh());
+        self::assertNull($user->fresh());
     }
 
     public function test_correct_password_must_be_provided_to_delete_account(): void
@@ -79,6 +79,6 @@ class ProfileUpdateTest extends TestCase
 
         $response->assertSessionHasErrors('password')->assertRedirect(route('profile.edit'));
 
-        static::assertNotNull($user->fresh());
+        self::assertNotNull($user->fresh());
     }
 }

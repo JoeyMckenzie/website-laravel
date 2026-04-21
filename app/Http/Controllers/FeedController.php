@@ -17,7 +17,7 @@ final class FeedController extends Controller
             ->latest('published_at')
             ->get(['slug', 'title', 'description', 'image', 'published_at', 'tag_id', 'storage_key']);
 
-        $items = $posts->map(fn(Post $post): string => <<<XML
+        $items = $posts->map(fn (Post $post): string => <<<XML
                 <item>
                     <title><![CDATA[{$post->title}]]></title>
                     <link>{$this->postUrl($post)}</link>
@@ -48,12 +48,12 @@ final class FeedController extends Controller
 
     private function postUrl(Post $post): string
     {
-        return url("/blog/{$post->slug}");
+        return url('/blog/' . $post->slug);
     }
 
     private function imageUrl(Post $post): string
     {
-        return url("/{$post->image}");
+        return url('/' . $post->image);
     }
 
     private function siteUrl(): string

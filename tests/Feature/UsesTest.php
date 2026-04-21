@@ -7,7 +7,7 @@ namespace Tests\Feature;
 use Inertia\Testing\AssertableInertia;
 use Tests\TestCase;
 
-class UsesTest extends TestCase
+final class UsesTest extends TestCase
 {
     public function test_uses_page_returns_ok(): void
     {
@@ -20,6 +20,6 @@ class UsesTest extends TestCase
     {
         $response = $this->get(route('uses'));
 
-        $response->assertInertia(static fn(AssertableInertia $page) => $page->component('uses'));
+        $response->assertInertia(static fn (AssertableInertia $page): \Inertia\Testing\AssertableInertia => $page->component('uses'));
     }
 }

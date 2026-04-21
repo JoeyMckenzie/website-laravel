@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Http\Middleware\HandleAppearance;
 use App\Http\Middleware\HandleInertiaRequests;
 use Illuminate\Foundation\Application;
@@ -15,7 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware): void {
+    ->withMiddleware(static function (Middleware $middleware): void {
         $middleware->encryptCookies(except: ['appearance', 'sidebar_state']);
 
         $middleware->web(append: [
@@ -24,11 +26,11 @@ return Application::configure(basePath: dirname(__DIR__))
             AddLinkHeadersForPreloadedAssets::class,
         ]);
     })
-    ->withExceptions(function (Exceptions $exceptions): void {
-        $exceptions->render(function (HttpException $e) {
+    ->withExceptions(static function (Exceptions $exceptions): void {
+        $exceptions->render(static function (HttpException $e) {
             $status = $e->getStatusCode();
 
-            if (in_array($status, [404, 500, 503])) {
+            if (in_array($status, [404, 500, 503], true)) {
                 return Inertia::render('error', [
                     'status' => $status,
                 ])->toResponse(request())->setStatusCode($status);

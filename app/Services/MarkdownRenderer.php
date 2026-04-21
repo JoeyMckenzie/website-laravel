@@ -22,7 +22,7 @@ final class MarkdownRenderer
     {
         return (string) (
             app()->isProduction()
-                ? Cache::rememberForever($slug, fn() => $this->convert($content))
+                ? Cache::rememberForever($slug, fn (): string => $this->convert($content))
                 : $this->convert($content)
         );
     }

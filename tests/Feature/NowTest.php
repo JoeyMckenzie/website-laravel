@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia;
 use Tests\TestCase;
 
-class NowTest extends TestCase
+final class NowTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -23,6 +23,6 @@ class NowTest extends TestCase
     {
         $response = $this->get(route('now'));
 
-        $response->assertInertia(static fn(AssertableInertia $page) => $page->component('now'));
+        $response->assertInertia(static fn (AssertableInertia $page): \Inertia\Testing\AssertableInertia => $page->component('now'));
     }
 }

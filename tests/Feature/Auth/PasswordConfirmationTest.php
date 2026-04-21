@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\AssertableInertia as Assert;
 use Tests\TestCase;
 
-class PasswordConfirmationTest extends TestCase
+final class PasswordConfirmationTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -21,7 +21,7 @@ class PasswordConfirmationTest extends TestCase
 
         $response->assertOk();
 
-        $response->assertInertia(static fn(Assert $page) => $page->component('auth/confirm-password'));
+        $response->assertInertia(static fn (Assert $page): \Inertia\Testing\AssertableInertia => $page->component('auth/confirm-password'));
     }
 
     public function test_password_confirmation_requires_authentication(): void

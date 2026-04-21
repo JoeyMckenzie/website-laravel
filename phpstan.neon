@@ -1,0 +1,18 @@
+parameters:
+    level: max
+    paths:
+        - app
+        - config
+        - database/factories
+        - database/seeders
+        - tests
+        - public/index.php
+        - bootstrap/app.php
+        - bootstrap/providers.php
+    tmpDir: .phpstan
+    type_coverage:
+        return: 100
+        param: 100
+        property: 100
+        constant: 100
+        declare: 100

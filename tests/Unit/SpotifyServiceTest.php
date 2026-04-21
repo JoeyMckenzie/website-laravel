@@ -7,11 +7,12 @@ namespace Tests\Unit;
 use App\Services\SpotifyService;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Override;
 use Tests\TestCase;
 
-class SpotifyServiceTest extends TestCase
+final class SpotifyServiceTest extends TestCase
 {
-    #[\Override]
+    #[Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -53,11 +54,11 @@ class SpotifyServiceTest extends TestCase
         $service = new SpotifyService();
         $result = $service->nowPlaying();
 
-        static::assertNotNull($result);
-        static::assertSame('Bohemian Rhapsody', $result->title);
-        static::assertSame('Queen', $result->artist);
-        static::assertSame('https://example.com/album.jpg', $result->albumImage);
-        static::assertSame('https://open.spotify.com/track/123', $result->href);
+        self::assertNotNull($result);
+        self::assertSame('Bohemian Rhapsody', $result->title);
+        self::assertSame('Queen', $result->artist);
+        self::assertSame('https://example.com/album.jpg', $result->albumImage);
+        self::assertSame('https://open.spotify.com/track/123', $result->href);
     }
 
     public function test_returns_now_playing_data_for_podcast(): void
@@ -87,10 +88,10 @@ class SpotifyServiceTest extends TestCase
         $service = new SpotifyService();
         $result = $service->nowPlaying();
 
-        static::assertNotNull($result);
-        static::assertSame('Episode 42', $result->title);
-        static::assertSame('Tech Podcast', $result->artist);
-        static::assertSame('https://example.com/show.jpg', $result->albumImage);
+        self::assertNotNull($result);
+        self::assertSame('Episode 42', $result->title);
+        self::assertSame('Tech Podcast', $result->artist);
+        self::assertSame('https://example.com/show.jpg', $result->albumImage);
     }
 
     public function test_returns_null_when_nothing_playing(): void
@@ -108,7 +109,7 @@ class SpotifyServiceTest extends TestCase
         $service = new SpotifyService();
         $result = $service->nowPlaying();
 
-        static::assertNull($result);
+        self::assertNull($result);
     }
 
     public function test_returns_null_on_api_error(): void
@@ -126,7 +127,7 @@ class SpotifyServiceTest extends TestCase
         $service = new SpotifyService();
         $result = $service->nowPlaying();
 
-        static::assertNull($result);
+        self::assertNull($result);
     }
 
     public function test_caches_access_token(): void

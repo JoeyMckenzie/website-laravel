@@ -8,7 +8,7 @@ use App\Concerns\ProfileValidationRules;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProfileUpdateRequest extends FormRequest
+final class ProfileUpdateRequest extends FormRequest
 {
     use ProfileValidationRules;
 

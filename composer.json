@@ -24,7 +24,7 @@
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.6",
         "carthage-software/mago": "^1.16.0",
-        "driftingly/rector-laravel": "^2.2",
+        "driftingly/rector-laravel": "^2.3",
         "ergebnis/composer-normalize": "^2.48",
         "fakerphp/faker": "^1.24",
         "infection/infection": "^0.31.2",
@@ -35,8 +35,13 @@
         "laravel/sail": "^1.53",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.9",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
         "phpunit/phpunit": "^12.5.12",
-        "rector/rector": "^2.3"
+        "rector/rector": "^2.4",
+        "tomasvotruba/type-coverage": "^2.1"
     },
     "minimum-stability": "stable",
     "autoload": {
@@ -56,7 +61,8 @@
             "ergebnis/composer-normalize": true,
             "infection/extension-installer": true,
             "pestphp/pest-plugin": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true
         },
         "optimize-autoloader": true,
         "preferred-install": "dist",
@@ -99,11 +105,11 @@
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1 --timeout=0\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
         ],
-        "analyze": "vendor/bin/mago analyze --baseline baseline-analysis.toml",
-        "fmt": "vendor/bin/mago fmt",
-        "fmt:check": "vendor/bin/mago fmt --check",
-        "lint": "vendor/bin/mago lint",
-        "lint:fix": "vendor/bin/mago lint --fix --unsafe",
+        "fmt": "vendor/bin/pint -vvv --parallel",
+        "fmt:check": "vendor/bin/pint --test",
+        "lint": "vendor/bin/phpstan analyze --memory-limit=2G",
+        "refactor": "vendor/bin/rector process",
+        "refactor:check": "vendor/bin/rector process --dry-run",
         "setup": [
             "composer install",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
