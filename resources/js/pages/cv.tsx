@@ -77,6 +77,7 @@ const skills = [
             '.NET',
             'Azure',
             'Angular',
+            'Vue',
             'Next.js',
             'Java',
             'Spring Boot',
@@ -84,7 +85,7 @@ const skills = [
     },
     {
         category: 'The glue nobody thanks (that also pays my bills)',
-        items: ['AWS', 'Azure', 'Docker', 'Terraform', 'GitHub', 'Kubernetes'],
+        items: ['AWS', 'Docker', 'Terraform', 'GitHub', 'Kubernetes'],
     },
 ];
 
