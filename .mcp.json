@@ -2,31 +2,19 @@
     "mcpServers": {
         "laravel-boost": {
             "command": "php",
-            "args": [
-                "artisan",
-                "boost:mcp"
-            ]
+            "args": ["artisan", "boost:mcp"]
         },
         "questlog": {
             "command": "bunx",
-            "args": [
-                "-y",
-                "questlog-mcp"
-            ]
+            "args": ["-y", "questlog-mcp"]
         },
         "shadcn": {
             "command": "bunx",
-            "args": [
-                "shadcn@latest",
-                "mcp"
-            ]
+            "args": ["shadcn@latest", "mcp"]
         },
         "magicuidesign-mcp": {
             "command": "bunx",
-            "args": [
-                "-y",
-                "@magicuidesign/mcp@latest"
-            ]
+            "args": ["-y", "@magicuidesign/mcp@latest"]
         }
     }
 }

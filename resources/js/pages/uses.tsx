@@ -1,5 +1,9 @@
 import { Head } from '@inertiajs/react';
-import { FadeInSection, StaggeredItem, StaggeredList } from '@/components/motion';
+import {
+    FadeInSection,
+    StaggeredItem,
+    StaggeredList,
+} from '@/components/motion';
 
 const sections = [
     {

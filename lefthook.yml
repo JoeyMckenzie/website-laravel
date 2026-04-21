@@ -18,12 +18,12 @@ pre-commit:
   jobs:
     - name: format frontend files
       run: npm run fmt
-      glob: "*.{js,ts,jsx,tsx,json,md}"
+      glob: '*.{js,ts,jsx,tsx,json,md}'
 
     - name: format backend files
       run: composer fmt
-      glob: "*.php"
+      glob: '*.php'
 
     - name: refactor backend files
       run: composer refactor
-      glob: "*.php"
+      glob: '*.php'
