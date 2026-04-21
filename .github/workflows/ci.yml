@@ -1,4 +1,4 @@
-name: tests
+name: ci
 
 on:
   push:
@@ -9,9 +9,35 @@ on:
       - main
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+
+      - name: Install Dependencies
+        run: |
+          composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+          npm install
+
+      - name: Run phpstan
+        run: composer lint
+
+      - name: Run pint
+        run: composer fmt:check
+
+      - name: Format Frontend
+        run: npm run fmt
+
+      - name: Lint Frontend
+        run: npm run lint
+
   tests:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -48,3 +74,16 @@ jobs:
 
       - name: Tests
         run: ./vendor/bin/phpunit
+
+  deploy:
+    needs: [lint, tests]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy
+      cancel-in-progress: false
+    steps:
+      - name: Trigger Forge deployment
+        run: curl -fsSL "$FORGE_DEPLOY_URL"
+        env:
+          FORGE_DEPLOY_URL: ${{ secrets.FORGE_DEPLOY_URL }}
