@@ -17,6 +17,9 @@ return RectorConfig::configure()
         __DIR__.'/routes',
         __DIR__.'/tests',
     ])
+    ->withSkip([
+        __DIR__.'/boostrap/cache',
+    ])
     ->withRules([
         AddOverrideAttributeToOverriddenMethodsRector::class,
         StaticClosureRector::class,
