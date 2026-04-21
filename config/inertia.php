@@ -21,7 +21,9 @@ return [
         'enabled' => true,
         'url' => 'http://127.0.0.1:13714',
         // 'bundle' => base_path('bootstrap/ssr/ssr.mjs'),
-
+        'runtime' => env('INERTIA_SSR_RUNTIME', 'node'),
+        'ensure_runtime_exists' => (bool) env('INERTIA_SSR_ENSURE_RUNTIME_EXISTS', false),
+        'throw_on_error' => (bool) env('INERTIA_SSR_THROW_ON_ERROR', false),
     ],
 
     /*

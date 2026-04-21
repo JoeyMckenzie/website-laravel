@@ -6,6 +6,7 @@
         "build": "tsc && vite build",
         "build:ssr": "tsc && vite build && vite build --ssr",
         "dev": "vite",
+        "preview:ssr": "npm run build:ssr && php artisan inertia:start-ssr",
         "fmt": "oxfmt",
         "fmt:check": "oxfmt --check",
         "lint": "oxlint",
