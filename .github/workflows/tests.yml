@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  ci:
+  tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,7 +39,6 @@ jobs:
 
       - name: Generate Application Key
         run: php artisan key:generate
-
 
       - name: Generate types
         run: php artisan wayfinder:generate --with-form
