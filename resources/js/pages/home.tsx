@@ -1,6 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
 import { index } from '@/actions/App/Http/Controllers/BlogController';
-import { FadeIn, StaggeredItem, StaggeredList } from '@/components/motion';
+import { StaggeredItem, StaggeredList } from '@/components/motion';
 import PostPreviewCard from '@/components/post-preview-card';
 import SocialLinks from '@/components/social-links';
 import type { PostSummary } from '@/types';

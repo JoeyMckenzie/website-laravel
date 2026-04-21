@@ -1,5 +1,4 @@
 import { Head } from '@inertiajs/react';
-import { Download } from 'lucide-react';
 import {
     FadeInSection,
     StaggeredItem,

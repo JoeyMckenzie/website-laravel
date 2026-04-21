@@ -63,7 +63,7 @@ return [
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
-            ], static fn (mixed $value): bool => !in_array($value, [null, false, ''], true)) : [],
+            ], static fn (mixed $value): bool => ! in_array($value, [null, false, ''], true)) : [],
         ],
 
         'mariadb' => [
@@ -83,7 +83,7 @@ return [
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
-            ], static fn (mixed $value): bool => !in_array($value, [null, false, ''], true)) : [],
+            ], static fn (mixed $value): bool => ! in_array($value, [null, false, ''], true)) : [],
         ],
 
         'pgsql' => [

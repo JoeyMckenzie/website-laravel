@@ -14,7 +14,7 @@ Route::get('/blog/{post}', [BlogController::class, 'show'])->name('blog.show');
 
 Route::get('/feed.xml', [FeedController::class, 'rss'])->name('feed');
 
-Route::get('/sitemap.xml', static function (): \Symfony\Component\HttpFoundation\Response {
+Route::get('/sitemap.xml', static function (): Symfony\Component\HttpFoundation\Response {
     $sitemap = Sitemap::create()
         ->add(Url::create('/'))
         ->add(Url::create('/now'))

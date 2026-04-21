@@ -3,19 +3,13 @@ name: linter
 on:
   push:
     branches:
-      - develop
       - main
-      - master
-      - workos
   pull_request:
     branches:
-      - develop
       - main
-      - master
-      - workos
 
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 
 jobs:
   quality:
@@ -33,14 +27,11 @@ jobs:
           composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
           npm install
 
-      - name: Run mago lint
+      - name: Run phpstan
         run: composer lint
 
-      - name: Run mago analyze
-        run: composer analyze
-
-      - name: Run mago formatter
-        run: composer fmt
+      - name: Run pint
+        run: composer fmt:check
 
       - name: Format Frontend
         run: npm run fmt
