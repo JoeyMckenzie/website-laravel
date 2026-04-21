@@ -31,7 +31,9 @@ final class Tag extends Model
 {
     use Sushi;
 
-    /** @var list<string> */
+    /**
+     * @var list<string>
+     */
     protected $appends = ['hash_tagged'];
 
     /**
@@ -77,7 +79,7 @@ final class Tag extends Model
     ];
 
     /**
-     * @return HasMany<Post, covariant $this>
+     * @return HasMany<Post, $this>
      */
     public function posts(): HasMany
     {

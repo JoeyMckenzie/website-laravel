@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -24,11 +25,13 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|GuestbookEntry whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|GuestbookEntry whereUpdatedAt($value)
  *
- * @mixin \Eloquent
+ * @mixin Eloquent
  */
 final class GuestbookEntry extends Model
 {
-    /** @var list<string> */
+    /**
+     * @var list<string>
+     */
     protected $fillable = [
         'github_username',
         'github_avatar',

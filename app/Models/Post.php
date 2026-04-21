@@ -69,7 +69,7 @@ final class Post extends Model
     }
 
     /**
-     * @return BelongsTo<Tag, covariant $this>
+     * @return BelongsTo<Tag, $this>
      */
     public function tag(): BelongsTo
     {
