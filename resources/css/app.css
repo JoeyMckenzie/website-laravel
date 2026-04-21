@@ -203,6 +203,37 @@
         @apply bg-background text-foreground;
         letter-spacing: var(--tracking-normal);
     }
+
+    pre.phiki code .line {
+        display: block;
+        min-height: 1lh;
+        padding-left: 0.4em;
+    }
+
+    pre.phiki code .line.highlight {
+        background-color: var(--phiki-line-highlight);
+        box-shadow: inset 1px 0 0 0 var(--primary);
+    }
+
+    pre.phiki code .line.insert {
+        background-color: var(--phiki-diff-insert-bg);
+        color: var(--phiki-diff-insert-fg);
+    }
+
+    pre.phiki code .line.remove {
+        background-color: var(--phiki-diff-remove-bg);
+        color: var(--phiki-diff-remove-fg);
+    }
+
+    pre.phiki.focus .line:not(.focus) {
+        transition: all 250ms;
+        filter: blur(2px);
+    }
+
+    pre.phiki.focus:hover .line {
+        transition: all 250ms;
+        filter: blur(0);
+    }
 }
 
 @theme inline {

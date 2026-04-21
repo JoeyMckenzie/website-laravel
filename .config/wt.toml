@@ -1,0 +1,16 @@
+[post-create]
+copy = "wt step copy-ignored"
+env = "sed -i '' 's|^APP_URL=.*|APP_URL=https://{{ branch | sanitize }}.test|' {{ worktree_path }}/.env"
+database = "touch database/database.sqlite && php artisan migrate:fresh --seed --no-interaction"
+storage = "php artisan storage:link --no-interaction"
+wayfinder = "php artisan wayfinder:generate --with-form"
+build = "npm run build"
+herd = "herd link {{ branch | sanitize }} --secure"
+
+[pre-remove]
+herd-unsecure = "herd unsecure {{ branch | sanitize }}.test --silent || true"
+herd-unlink = "herd unlink {{ branch | sanitize }} || true"
+database = "rm -f {{ worktree_path }}/database/database.sqlite"
+
+[list]
+url = "{% if branch == 'main' %}https://website-laravel.test{% else %}https://{{ branch | sanitize }}.test{% endif %}"

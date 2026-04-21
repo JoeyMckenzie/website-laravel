@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Cache;
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Exception\CommonMarkException;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\Strikethrough\StrikethroughExtension;
 use League\CommonMark\MarkdownConverter;
 use Phiki\Adapters\CommonMark\PhikiExtension;
 use Phiki\Theme\Theme;
@@ -37,6 +38,7 @@ final class MarkdownRenderer
         $environment->addExtension(new CommonMarkCoreExtension());
         $environment->addExtension(new PhikiExtension(Theme::TokyoNight));
         $environment->addExtension(new MermaidExtension());
+        $environment->addExtension(new StrikethroughExtension());
 
         $converter = new MarkdownConverter($environment);
 
