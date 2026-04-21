@@ -5,6 +5,8 @@ install:
 
 check:
     composer fmt:check
+    composer refactor:check
     composer lint
+    npm run fmt:check
+    npm run types:check
     npm run lint
-    composer run fmt:check
