@@ -5,15 +5,15 @@
             "args": ["artisan", "boost:mcp"]
         },
         "questlog": {
-            "command": "bunx",
+            "command": "npx",
             "args": ["-y", "questlog-mcp"]
         },
         "shadcn": {
-            "command": "bunx",
+            "command": "npx",
             "args": ["shadcn@latest", "mcp"]
         },
         "magicuidesign-mcp": {
-            "command": "bunx",
+            "command": "npx",
             "args": ["-y", "@magicuidesign/mcp@latest"]
         }
     }
