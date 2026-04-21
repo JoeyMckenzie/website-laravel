@@ -48,12 +48,12 @@ final class FeedController extends Controller
 
     private function postUrl(Post $post): string
     {
-        return url('/blog/' . $post->slug);
+        return url('/blog/'.$post->slug);
     }
 
     private function imageUrl(Post $post): string
     {
-        return url('/' . $post->image);
+        return url('/'.$post->image);
     }
 
     private function siteUrl(): string

@@ -20,6 +20,6 @@ final class UsesTest extends TestCase
     {
         $response = $this->get(route('uses'));
 
-        $response->assertInertia(static fn (AssertableInertia $page): \Inertia\Testing\AssertableInertia => $page->component('uses'));
+        $response->assertInertia(static fn (AssertableInertia $page): AssertableInertia => $page->component('uses'));
     }
 }

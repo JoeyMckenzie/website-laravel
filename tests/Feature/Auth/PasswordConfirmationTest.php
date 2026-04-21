@@ -21,7 +21,7 @@ final class PasswordConfirmationTest extends TestCase
 
         $response->assertOk();
 
-        $response->assertInertia(static fn (Assert $page): \Inertia\Testing\AssertableInertia => $page->component('auth/confirm-password'));
+        $response->assertInertia(static fn (Assert $page): Assert => $page->component('auth/confirm-password'));
     }
 
     public function test_password_confirmation_requires_authentication(): void

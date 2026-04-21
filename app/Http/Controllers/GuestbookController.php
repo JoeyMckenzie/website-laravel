@@ -31,18 +31,20 @@ final class GuestbookController extends Controller
     {
         $username = $request->session()->get('github_username');
 
-        if (! $username) {
+        if (! is_string($username) || $username === '') {
             return redirect()->route('guestbook');
         }
 
-        $validated = $request->validate([
+        $request->validate([
             'body' => ['required', 'string', 'max:280'],
         ]);
 
+        $avatar = $request->session()->get('github_avatar');
+
         GuestbookEntry::create([
             'github_username' => $username,
-            'github_avatar' => $request->session()->get('github_avatar', ''),
-            ...$validated,
+            'github_avatar' => is_string($avatar) ? $avatar : '',
+            'body' => $request->string('body')->toString(),
         ]);
 
         return redirect()->route('guestbook');

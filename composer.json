@@ -109,8 +109,14 @@
         "fmt": "vendor/bin/pint -vvv --parallel",
         "fmt:check": "vendor/bin/pint --test",
         "lint": "vendor/bin/phpstan analyze --memory-limit=2G",
+        "lint:agent": "vendor/bin/phpstan analyze --memory-limit=2G --error-format=json",
         "refactor": "vendor/bin/rector process",
         "refactor:check": "vendor/bin/rector process --dry-run",
+        "check": [
+            "@refactor:check",
+            "@fmt:check",
+            "@lint"
+        ],
         "setup": [
             "composer install",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",

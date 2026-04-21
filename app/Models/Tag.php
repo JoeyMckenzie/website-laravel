@@ -16,20 +16,22 @@ use Sushi\Sushi;
  * @property int $id
  * @property string|null $name
  * @property-read string $hash_tagged
- * @property-read Collection<int, \App\Models\Post> $posts
+ * @property-read Collection<int, Post> $posts
  * @property-read int|null $posts_count
+ *
  * @method static Builder<static>|Tag newModelQuery()
  * @method static Builder<static>|Tag newQuery()
  * @method static Builder<static>|Tag query()
  * @method static Builder<static>|Tag whereId($value)
  * @method static Builder<static>|Tag whereName($value)
+ *
  * @mixin Eloquent
  */
 final class Tag extends Model
 {
     use Sushi;
 
-    /** @var array<array-key, mixed> */
+    /** @var list<string> */
     protected $appends = ['hash_tagged'];
 
     /**
@@ -85,8 +87,8 @@ final class Tag extends Model
     /**
      * @return Attribute<non-falsy-string, never>
      */
-    public function hashTagged(): Attribute
+    protected function hashTagged(): Attribute
     {
-        return Attribute::get(fn (): string => '#' . $this->name);
+        return Attribute::get(fn (): string => '#'.$this->name);
     }
 }

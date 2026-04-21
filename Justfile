@@ -6,6 +6,5 @@ install:
 check:
     composer fmt:check
     composer lint
-    composer analyze
     npm run lint
     composer run fmt:check

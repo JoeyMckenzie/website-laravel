@@ -34,19 +34,20 @@ final class PostReactionController extends Controller
 
     public function store(Request $request, string $slug): JsonResponse
     {
-        $validated = $request->validate([
+        $request->validate([
             'reaction' => ['required', 'string', 'in:fire,thumbs_up,mind_blown,heart'],
         ]);
 
+        $reaction = $request->string('reaction')->toString();
         $ipHash = hash('xxh128', (string) $request->ip());
 
         $existing = PostReaction::query()
             ->where('post_slug', $slug)
-            ->where('reaction', $validated['reaction'])
+            ->where('reaction', $reaction)
             ->where('ip_hash', $ipHash)
             ->first();
 
-        if ($existing) {
+        if ($existing !== null) {
             $existing->delete();
 
             return response()->json(['toggled' => 'removed']);
@@ -54,7 +55,7 @@ final class PostReactionController extends Controller
 
         PostReaction::create([
             'post_slug' => $slug,
-            'reaction' => $validated['reaction'],
+            'reaction' => $reaction,
             'ip_hash' => $ipHash,
         ]);
 

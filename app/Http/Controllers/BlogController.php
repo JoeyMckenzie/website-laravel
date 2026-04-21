@@ -23,7 +23,7 @@ final class BlogController extends Controller
 
         $posts = Post::query()
             ->with('tag:id,name')
-            ->when(is_string($selectedTag), static fn (Builder $query) => $query->whereHas('tag', static fn ($q) => $q->where(
+            ->when(is_string($selectedTag), static fn (Builder $query) => $query->whereHas('tag', static fn (Builder $q) => $q->where(
                 'name',
                 $selectedTag,
             )))

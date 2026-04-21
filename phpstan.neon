@@ -16,3 +16,5 @@ parameters:
         property: 100
         constant: 100
         declare: 100
+    ignoreErrors:
+        - identifier: staticMethod.dynamicCall

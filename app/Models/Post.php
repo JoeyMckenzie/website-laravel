@@ -26,7 +26,8 @@ use Override;
  * @property int $tag_id
  * @property-read string $formatted_published_at
  * @property-read int $reading_time_minutes
- * @property-read \App\Models\Tag $tag
+ * @property-read Tag $tag
+ *
  * @method static Builder<static>|Post latestPublished()
  * @method static Builder<static>|Post newModelQuery()
  * @method static Builder<static>|Post newQuery()
@@ -40,6 +41,7 @@ use Override;
  * @method static Builder<static>|Post whereStorageKey($value)
  * @method static Builder<static>|Post whereTagId($value)
  * @method static Builder<static>|Post whereTitle($value)
+ *
  * @mixin Eloquent
  */
 final class Post extends Model
@@ -67,50 +69,11 @@ final class Post extends Model
     }
 
     /**
-     * @return Attribute<non-falsy-string, never>
-     */
-    public function formattedPublishedAt(): Attribute
-    {
-        return Attribute::get(fn (): string => $this->published_at !== null
-            ? Date::parse($this->published_at)->format('M d, Y')
-            : Date::now()->format('M d, Y'));
-    }
-
-    /**
-     * @return Attribute<positive-int, never>
-     */
-    public function readingTimeMinutes(): Attribute
-    {
-        return Attribute::get(fn (): int => (int) max(1, ceil(str_word_count(strip_tags($this->content ?? '')) / 200)));
-    }
-
-    /**
      * @return BelongsTo<Tag, covariant $this>
      */
     public function tag(): BelongsTo
     {
         return $this->belongsTo(Tag::class);
-    }
-
-    /**
-     * @param  Builder<Post>  $query
-     */
-    #[Scope]
-    public function published(Builder $query): void
-    {
-        $query->whereNotNull('published_at');
-    }
-
-    /**
-     * @param  Builder<Post>  $query
-     * @return Builder<Post>
-     */
-    #[Scope]
-    public function latestPublished(Builder $query): Builder
-    {
-        return app()->isProduction()
-            ? $query->latest('published_at')
-            : $query->orderByRaw('CASE WHEN published_at IS NULL THEN 1 ELSE 0 END DESC')->orderByDesc('published_at');
     }
 
     #[Override]
@@ -143,5 +106,44 @@ final class Post extends Model
         if (app()->isProduction()) {
             self::addGlobalScope('published', static fn (Builder $query) => $query->whereNotNull('published_at'));
         }
+    }
+
+    /**
+     * @return Attribute<non-falsy-string, never>
+     */
+    protected function formattedPublishedAt(): Attribute
+    {
+        return Attribute::get(fn (): string => $this->published_at !== null
+            ? Date::parse($this->published_at)->format('M d, Y')
+            : Date::now()->format('M d, Y'));
+    }
+
+    /**
+     * @return Attribute<int<1, max>, never>
+     */
+    protected function readingTimeMinutes(): Attribute
+    {
+        return Attribute::get(fn (): int => max(1, (int) ceil(str_word_count(strip_tags($this->content ?? '')) / 200)));
+    }
+
+    /**
+     * @param  Builder<Post>  $query
+     */
+    #[Scope]
+    protected function published(Builder $query): void
+    {
+        $query->whereNotNull('published_at');
+    }
+
+    /**
+     * @param  Builder<Post>  $query
+     * @return Builder<Post>
+     */
+    #[Scope]
+    protected function latestPublished(Builder $query): Builder
+    {
+        return app()->isProduction()
+            ? $query->latest('published_at')
+            : $query->orderByRaw('CASE WHEN published_at IS NULL THEN 1 ELSE 0 END DESC')->orderByDesc('published_at');
     }
 }

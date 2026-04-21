@@ -48,7 +48,7 @@ final class EmailVerificationTest extends TestCase
         $response = $this->actingAs($user)->get($verificationUrl);
 
         Event::assertDispatched(Verified::class);
-        self::assertTrue($user->fresh()->hasVerifiedEmail());
+        self::assertTrue($user->refresh()->hasVerifiedEmail());
         $response->assertRedirect(route('dashboard', absolute: false).'?verified=1');
     }
 
@@ -66,7 +66,7 @@ final class EmailVerificationTest extends TestCase
         $this->actingAs($user)->get($verificationUrl);
 
         Event::assertNotDispatched(Verified::class);
-        self::assertFalse($user->fresh()->hasVerifiedEmail());
+        self::assertFalse($user->refresh()->hasVerifiedEmail());
     }
 
     public function test_email_is_not_verified_with_invalid_user_id(): void
@@ -83,7 +83,7 @@ final class EmailVerificationTest extends TestCase
         $this->actingAs($user)->get($verificationUrl);
 
         Event::assertNotDispatched(Verified::class);
-        self::assertFalse($user->fresh()->hasVerifiedEmail());
+        self::assertFalse($user->refresh()->hasVerifiedEmail());
     }
 
     public function test_verified_user_is_redirected_to_dashboard_from_verification_prompt(): void
@@ -115,6 +115,6 @@ final class EmailVerificationTest extends TestCase
             ->assertRedirect(route('dashboard', absolute: false).'?verified=1');
 
         Event::assertNotDispatched(Verified::class);
-        self::assertTrue($user->fresh()->hasVerifiedEmail());
+        self::assertTrue($user->refresh()->hasVerifiedEmail());
     }
 }

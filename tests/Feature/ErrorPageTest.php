@@ -15,6 +15,6 @@ final class ErrorPageTest extends TestCase
 
         $response
             ->assertStatus(404)
-            ->assertInertia(static fn (AssertableInertia $page): \Inertia\Testing\AssertableInertia => $page->component('error')->where('status', 404));
+            ->assertInertia(static fn (AssertableInertia $page): AssertableInertia => $page->component('error')->where('status', 404));
     }
 }

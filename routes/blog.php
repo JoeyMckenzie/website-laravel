@@ -14,7 +14,7 @@ Route::get('/blog/{post}', [BlogController::class, 'show'])->name('blog.show');
 
 Route::get('/feed.xml', [FeedController::class, 'rss'])->name('feed');
 
-Route::get('/sitemap.xml', static function () {
+Route::get('/sitemap.xml', static function (): \Symfony\Component\HttpFoundation\Response {
     $sitemap = Sitemap::create()
         ->add(Url::create('/'))
         ->add(Url::create('/now'))
@@ -26,7 +26,7 @@ Route::get('/sitemap.xml', static function () {
         ->published()
         ->latest('published_at')
         ->get(['slug', 'storage_key'])
-        ->each(fn (Post $post): \Spatie\Sitemap\Sitemap => $sitemap->add(Url::create('/blog/' . $post->slug)));
+        ->each(fn (Post $post): Sitemap => $sitemap->add(Url::create('/blog/'.$post->slug)));
 
     return $sitemap->toResponse(request());
 })->name('sitemap');
