@@ -1,10 +1,10 @@
 ---
 title: Wonderful world of worktrees (and Laravel)
 slug: wonderful-world-of-worktrees-and-laravel
-description: 'Worktrees... SO hot right now!'
+description: "Worktrees... SO hot right now!"
 image: assets/images/worktrees-meme.jpg
 tag_id: 1
-published_at: '2026-04-22'
+published_at: "2026-04-22"
 storage_key: 2026-04-22-wonderful-world-of-worktrees-and-laravel
 ---
 
@@ -31,7 +31,7 @@ development these days as agentic coding tools make it _too_ easy to develop mul
 in parallel (that doesn't mean they're tested/good, btw). I've really been enjoying [worktrunk](https://worktrunk.dev/) as my worktree manager, and while it's not absolutely necessary for managing worktrees, you'll
 quickly find that the built-in worktree tools for git are rough around the edges.
 
-## Worktrunk and you
+## Worktrees and you
 
 With worktrees, your mental model of development with branches shifts a bit:
 
