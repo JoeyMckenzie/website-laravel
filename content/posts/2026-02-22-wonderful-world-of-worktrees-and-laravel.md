@@ -1,10 +1,11 @@
 ---
 title: Wonderful world of worktrees (and Laravel)
 slug: wonderful-world-of-worktrees-and-laravel
-description: 'Worktrees... SO hot right now!'
+description: "Worktrees... SO hot right now!"
 image: assets/images/worktrees-meme.jpg
 tag_id: 1
-storage_key: 2026-02-22-wonderful-world-of-worktrees-and-laravel
+published_at: "2026-04-22"
+storage_key: 2026-04-22-wonderful-world-of-worktrees-and-laravel
 ---
 
 It seems impossible nowadays to go any amount of time without someone mentioning
@@ -228,4 +229,169 @@ you run a worktunk command. Now when I `wt list`, I get a nice list of worktrees
 
 Now for worktrunk's pièce de résistance (imo) - LLM generated commits.
 
-TODO
+This can be a controversial take. Some folks prefer to write their own commit messages, some could care less
+exactly _who_ writes them. The problem I see more often than not is that the amount of devs that simply write
+absolute garbage within a commit message is non-zero. And don't kid yourself, you've probably committed a
+`wip` or two (or three) with no commit descriptions.
+
+And commit descriptions? Forget it, ain't no one got time for that. The caveat here is that I've worked
+with developers that really put a lot of time and thought into commit descriptions, only for no one to
+read them. Commit descriptions are great, especially when given some tender loving care with thoughtful
+content that answers questions that may arise within a pull request before they're ever asked.
+
+But LLMs do it better.
+
+Worktrunk has a `wt step commit` that'll summarize changes and use your favorite to write a commit.
+The amount of time I've saved with that command alone is immeasurable at this point. Does anyone
+still read the commits descriptions? Of course not, but they're there if anyone wants to and concise enough
+to capture the intent of the changes within a commit.
+
+We can configure LLM generated commits with worktrunk fairly easily within a global `config.toml` file that lives
+wherever you put your config. I'm a bit obsessive over my dotfiles, so everything lives at `~/.config` for all
+the tooling configuration I use, where a `~/.config/worktrunk/config.toml` acts as a global configuration file
+that merges with my local repository's `wt.toml` file.
+
+Here's my global `config.toml` where I put commit instructions and tell worktrunk to have Claude co-author commits,
+because if I've vibe coding, I at least want to be very apparent that Claude is my co-pilot:
+
+#### ~/.config/worktrunk/config.toml
+
+```toml
+[commit.generation]
+command = "CLAUDECODE= MAX_THINKING_TOKENS=0 claude -p --model=haiku --tools='' --disable-slash-commands --setting-sources='' --system-prompt=''"
+
+template = """
+Write a commit message for the staged changes below.
+
+<format>
+- Commit message MUST have a co-author trailer of "Co-Authored-By: Claude Haiku 4.6 <noreply@anthropic.com>"
+- Subject line MUST use a conventional commit prefix: feat, fix, refactor, chore, docs, test, style, perf, ci, build
+- Subject line format: `type(scope): description` or `type: description`
+- Subject line under 50 chars, lowercase, no period
+- Add a blank line then a body paragraph describing what changed and why
+- Body lines wrap at 72 chars
+- Output only the commit message, no quotes or code blocks
+</format>
+
+<style>
+- Imperative mood: "add feature" not "added feature"
+- Scope is optional but encouraged when the change is localized (e.g. auth, api, ui)
+- The body should explain context a reviewer would find useful, not just restate the diff
+</style>
+
+<diffstat>
+{{ git_diff_stat }}
+</diffstat>
+
+<diff>
+{{ git_diff }}
+</diff>
+
+<context>
+Branch: {{ branch }}
+{% if recent_commits %}<recent_commits>
+{% for commit in recent_commits %}- {{ commit }}
+{% endfor %}</recent_commits>{% endif %}
+</context>
+"""
+```
+
+Using the template variables worktrunk provides, it's almost too easy to customize a commit prompt to your liking.
+I keep mine fairly simple, trying not to overcomplicate nor overengineer a commit message - after all, I want people
+to actually _read_ the messages and descriptions and feel like it's not AI slop (still happens from time to time).
+
+Another cool thing is squash templates. On a worktree, I might have 10 or commits in a feature and when doing a `wt merge`,
+I don't really care to see all of those commits in a linear fashion. I'm team squash-merge, simply because I want to look
+at a single feature branch commit merged to the trunk branch that captures the intent of the feature within the message.
+
+As you might have guessed, worktrunk has that covered as well with `squash-template`s in our global `confit.toml` file:
+
+#### ~/.config/worktrunk/config.toml
+
+```toml {}{39-62}
+[commit.generation]
+command = "CLAUDECODE= MAX_THINKING_TOKENS=0 claude -p --model=haiku --tools='' --disable-slash-commands --setting-sources='' --system-prompt=''"
+
+template = """
+Write a commit message for the staged changes below.
+
+<format>
+- Commit message MUST have a co-author trailer of "Co-Authored-By: Claude Haiku 4.6 <noreply@anthropic.com>"
+- Subject line MUST use a conventional commit prefix: feat, fix, refactor, chore, docs, test, style, perf, ci, build
+- Subject line format: `type(scope): description` or `type: description`
+- Subject line under 50 chars, lowercase, no period
+- Add a blank line then a body paragraph describing what changed and why
+- Body lines wrap at 72 chars
+- Output only the commit message, no quotes or code blocks
+</format>
+
+<style>
+- Imperative mood: "add feature" not "added feature"
+- Scope is optional but encouraged when the change is localized (e.g. auth, api, ui)
+- The body should explain context a reviewer would find useful, not just restate the diff
+</style>
+
+<diffstat>
+{{ git_diff_stat }}
+</diffstat>
+
+<diff>
+{{ git_diff }}
+</diff>
+
+<context>
+Branch: {{ branch }}
+{% if recent_commits %}<recent_commits>
+{% for commit in recent_commits %}- {{ commit }}
+{% endfor %}</recent_commits>{% endif %}
+</context>
+"""
+
+squash-template = """
+Combine these commits into a single commit message.
+
+<format>
+- Commit message MUST have a co-author trailer of "Co-Authored-By: Claude Haiku 4.6 <noreply@anthropic.com>"
+- Subject line MUST use a conventional commit prefix: feat, fix, refactor, chore, docs, test, style, perf, ci, build
+- Subject line format: `type(scope): description` or `type: description`
+- Subject line under 50 chars, lowercase, no period
+- Add a blank line then a body paragraph summarizing the overall change and why it was made
+- Body lines wrap at 72 chars
+- Output only the commit message, no quotes or code blocks
+</format>
+
+<commits branch="{{ branch }}" target="{{ target_branch }}">
+{% for commit in commits %}- {{ commit }}
+{% endfor %}</commits>
+
+<diffstat>
+{{ git_diff_stat }}
+</diffstat>
+
+<diff>
+{{ git_diff }}
+</diff>
+"""
+```
+
+It's basically just some copy-pasta of the commit template, the only difference being a loop that rolls through each commit
+and provides the messages to Claude to sensibly summarize into a single squash-merge commit.
+
+## Honorable mentions
+
+By now, you're probably wondering what else is out there. And you're luck, as Claude has [official support](https://code.claude.com/docs/en/settings#worktree-settings) for worktrees in Claude Code, and tools like [Conductor](https://www.conductor.build/) make
+it easy for the GUI enjoyers to manage worktrees in a nice UI. There's also [cmux](https://cmux.com/) which builds
+on top of ghostty (the Lord's terminal emulator) that sits somewhere in between a tool like worktrunk and Conductor.
+I live in the terminal and have a general disdain for GUIs, so worktrunk fits my needs exactly. There's no lack of
+AI-guided tooling assistants, so I encourage to find one that you like and give it a go.
+
+## And so, so much more
+
+I've been worktrees with worktrunk for all of my Laravel projects over the past year and have found them to be a true boost
+to productivity. I find them extremely helpful when working on a features and having to pivot to other issues, where I would
+have stashed/committed changes, switched to main, rip bug fix branches, etc. Worktrees are like a bookmark in your code novel,
+allowing you to maintain your place while re-reading previous chapters that you might want to take another look at (I don't think
+that analogy works, but it's all I got). In the age of AI writing all our code, I'll take any tool I can get that helps make sense
+of all the slop that comes through the pipeline.
+
+Well, I think I've rambled on long enough. Until next time, friends!
